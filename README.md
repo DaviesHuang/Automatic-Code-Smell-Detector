@@ -1,0 +1,1 @@
+# Intellij-code-smell-plugin
