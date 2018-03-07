@@ -26,15 +26,15 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
-    <inspectionToolProvider implementation="main.CodeInspections.CodeInspectionProvider"/>
+    <inspectionToolProvider implementation="CodeInspections.CodeInspectionProvider"/>
   </extensions>
 
-  <actions>
-    <!-- Add your actions here -->
-    <group id="MyPlugin.CodeInspection" text="_Code Inspection" description="Code Inspection">
-      <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="Myplugin.Textboxes" class="main.Actions.TextBoxes" text="Text _Boxes" description="A test menu item" />
-    </group>
-  </actions>
+  <!--<actions>-->
+    <!--&lt;!&ndash; Add your actions here &ndash;&gt;-->
+    <!--<group id="MyPlugin.CodeInspection" text="_Code Inspection" description="Code Inspection">-->
+      <!--<add-to-group group-id="MainMenu" anchor="last"  />-->
+      <!--<action id="Myplugin.Textboxes" class="Actions.TextBoxes" text="Text _Boxes" description="A test menu item" />-->
+    <!--</group>-->
+  <!--</actions>-->
 
 </idea-plugin>

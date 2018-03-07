@@ -1,4 +1,4 @@
-package main.CodeInspections;
+package CodeInspections;
 
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;

@@ -1,17 +1,12 @@
-package main.Actions;
+package Actions;
 
-import com.intellij.codeInsight.daemon.GroupNames;
-import com.intellij.codeInspection.InspectionsBundle;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
-import com.intellij.openapi.ui.Messages;
 import com.intellij.psi.*;
-import com.intellij.psi.tree.IElementType;
 import com.intellij.util.text.StringTokenizer;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 
 public class TextBoxes extends AnAction {
 

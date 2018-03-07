@@ -1,11 +1,10 @@
-package test;
+package CodeInspections;
 
 import com.intellij.codeInsight.daemon.impl.HighlightInfo;
 import com.intellij.codeInsight.intention.IntentionAction;
 import com.intellij.testFramework.UsefulTestCase;
 import com.intellij.testFramework.builders.JavaModuleFixtureBuilder;
 import com.intellij.testFramework.fixtures.*;
-import main.CodeInspections.ObjectComparisonInspection;
 import org.junit.Assert;
 
 import java.util.List;
@@ -51,8 +50,4 @@ public class ObjectComparisonInspectionTest extends UsefulTestCase {
         doTest("ObjectComparisonSample", "Use equals()");
     }
 
-//    // Test the "!=" case
-//    public void test_Not_Eq() throws Throwable {
-//        doTest("before1", "Use equals()");
-//    }
 }

@@ -1,4 +1,4 @@
-package main.CodeInspections;
+package CodeInspections;
 
 import com.intellij.codeInspection.InspectionsBundle;
 import com.intellij.codeInspection.LocalQuickFix;
