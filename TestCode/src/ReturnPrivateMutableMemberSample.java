@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class ReturnPrivateMutableMemberSample {
@@ -7,6 +8,7 @@ public class ReturnPrivateMutableMemberSample {
     private Date d;
     private String s;
     private ArrayList<Date> list;
+    HashMap h;
 
     public ReturnPrivateMutableMemberSample() {
         d = new Date();
@@ -26,7 +28,7 @@ public class ReturnPrivateMutableMemberSample {
     }
 
     public ArrayList<Date> getList() {
-        return list;
+        return (ArrayList<Date>) list.clone();
     }
 
 }

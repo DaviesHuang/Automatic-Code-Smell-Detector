@@ -10,6 +10,7 @@ public class CodeInspectionProvider implements InspectionToolProvider {
     public Class[] getInspectionClasses() {
         return new Class[]{
                 ObjectComparisonInspection.class,
+                MethodComplexityInspection.class,
                 ReturnPrivateMutableFieldInspection.class
         };
     }

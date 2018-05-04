@@ -6,13 +6,18 @@ public class ReturnPrivateMutableMemberSampleFixed {
     private Date d;
     private String s;
     private ArrayList<Date> list;
+    private AA aa;
 
     public ReturnPrivateMutableMemberSampleFixed() {
         d = new Date();
     }
 
     public Date getDate() {
-        return d;
+        return (Date) ggggg().clone();
+    }
+
+    private Date ggggg() {
+        return (Date) d.clone();
     }
 
     public String getString() {
@@ -24,8 +29,11 @@ public class ReturnPrivateMutableMemberSampleFixed {
         return d2;
     }
 
-    public ArrayList<Date> getList() {
-        return list;
+    private ArrayList<Date> getList() {
+        return (ArrayList<Date>) list.clone();
     }
 
+    private AA getAA() { return aa; }
 }
+
+
