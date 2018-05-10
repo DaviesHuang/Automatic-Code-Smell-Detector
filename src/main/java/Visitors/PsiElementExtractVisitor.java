@@ -1,5 +1,6 @@
 package Visitors;
 
+import DialogProviders.CyclomaticComplexityDialogsProvider;
 import com.intellij.psi.*;
 import com.intellij.refactoring.extractMethod.ExtractMethodHandler;
 import com.intellij.refactoring.extractMethod.ExtractMethodProcessor;
@@ -8,6 +9,10 @@ import org.jetbrains.annotations.NotNull;
 public class PsiElementExtractVisitor extends JavaRecursiveElementWalkingVisitor {
 
     private void extract(PsiElement element) {
+        boolean shouldExtract = CyclomaticComplexityDialogsProvider.showIdentifyComplexElementDialog(element.getProject(), element);
+        if (!shouldExtract) {
+            return;
+        }
         ExtractMethodProcessor processor = ExtractMethodHandler.getProcessor(
                 element.getProject(),
                 new PsiElement[]{element},
@@ -20,6 +25,10 @@ public class PsiElementExtractVisitor extends JavaRecursiveElementWalkingVisitor
 
     private void extractElementArray(PsiElement[] elements) {
         PsiElement element = elements[0];
+        boolean shouldExtract = CyclomaticComplexityDialogsProvider.showIdentifyComplexElementsDialog(element.getProject(), elements);
+        if (!shouldExtract) {
+            return;
+        }
         ExtractMethodProcessor processor = ExtractMethodHandler.getProcessor(
                 element.getProject(),
                 elements,

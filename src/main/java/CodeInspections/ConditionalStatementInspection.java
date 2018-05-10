@@ -5,17 +5,15 @@ import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.*;
-import com.siyeh.ig.classmetrics.CyclomaticComplexityVisitor;
 import org.jetbrains.annotations.NotNull;
 
-public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
+public class ConditionalStatementInspection extends BaseJavaLocalInspectionTool {
 
-    private final LocalQuickFix quickFix = new MethodComplexityFix();
-    private final int threshold = 5;
+    private final LocalQuickFix quickFix = new ConditionalStatementFix();
 
     @NotNull
     public String getDisplayName() {
-        return "Method cyclomatic complexity analysis and refactoring";
+        return "Conditional Statements instead of using polymorphism";
     }
 
     @NotNull
@@ -33,16 +31,10 @@ public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
         return new JavaElementVisitor() {
 
-            final CyclomaticComplexityVisitor visitor = new CyclomaticComplexityVisitor();
-
             @Override
-            public void visitMethod(PsiMethod method) {
-                visitor.reset();
-                method.accept(visitor);
-                final int complexity = visitor.getComplexity();
-                if (complexity >= threshold) {
-                    holder.registerProblem(method, getDisplayName(), quickFix);
-                }
+            public void visitSwitchStatement(PsiSwitchStatement statement) {
+                super.visitStatement(statement);
+                holder.registerProblem(statement, getDisplayName(), quickFix);
             }
         };
     }

@@ -1,5 +1,6 @@
 package CodeInspections;
 
+import DialogProviders.CyclomaticComplexityDialogsProvider;
 import Visitors.PsiElementExtractVisitor;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemDescriptor;
@@ -7,7 +8,7 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiIfStatement;
-import com.intellij.psi.PsiMethod;
+import com.intellij.psi.PsiMethodCallExpression;
 import com.siyeh.ig.classmetrics.CyclomaticComplexityVisitor;
 import org.apache.commons.lang3.ArrayUtils;
 import org.jetbrains.annotations.Nls;
@@ -26,33 +27,24 @@ public class MethodComplexityFix implements LocalQuickFix {
 
     @Override
     public void applyFix(@NotNull Project project, @NotNull ProblemDescriptor problemDescriptor) {
-        PsiMethod method = (PsiMethod) problemDescriptor.getPsiElement();
-        refactor(method);
+        boolean shouldRefactor = CyclomaticComplexityDialogsProvider.showStartDialog(project);
+        if (shouldRefactor) {
+            PsiElement element = problemDescriptor.getPsiElement();
+            final int originalComplexity = getComplexity(element);
+            refactor(element);
+            final int newComplexity = getComplexity(element);
+            CyclomaticComplexityDialogsProvider.showComplexityComparisonDialog(project, originalComplexity, newComplexity);
+        }
     }
 
-    public void refactor(PsiElement element) {
+    private void refactor(PsiElement element) {
         int maxComplexity = 1;
         PsiElement complexElement = null;
-        final CyclomaticComplexityVisitor visitor = new CyclomaticComplexityVisitor();
-        element.accept(visitor);
-        final int methodComplexity = visitor.getComplexity();
-
-        PsiElement[] childrenElement;
-        if (element instanceof PsiIfStatement) {
-            PsiIfStatement ifStatement = (PsiIfStatement) element;
-            childrenElement = ArrayUtils.addAll(
-                    ifStatement.getThenBranch().getChildren(),
-                    ifStatement.getElseBranch().getChildren()
-            );
-            childrenElement = ArrayUtils.add(childrenElement, ifStatement.getCondition());
-        } else {
-            childrenElement = element.getChildren();
-        }
+        final int totalComplexity = getComplexity(element);
+        PsiElement[] childrenElement = getChildren(element);
 
         for (PsiElement child : childrenElement) {
-            visitor.reset();
-            child.accept(visitor);
-            int complexity = visitor.getComplexity();
+            int complexity = getComplexity(child);
             if (complexity > maxComplexity) {
                 complexElement = child;
                 maxComplexity = complexity;
@@ -63,7 +55,7 @@ public class MethodComplexityFix implements LocalQuickFix {
             return;
         }
 
-        if (maxComplexity >= methodComplexity) {
+        if (maxComplexity >= totalComplexity) {
             refactor(complexElement);
         } else {
             PsiElementExtractVisitor extractVisitor = new PsiElementExtractVisitor();
@@ -71,4 +63,27 @@ public class MethodComplexityFix implements LocalQuickFix {
         }
     }
 
+    private int getComplexity(PsiElement element) {
+        CyclomaticComplexityVisitor visitor = new CyclomaticComplexityVisitor();
+        element.accept(visitor);
+        return visitor.getComplexity();
+    }
+
+    private PsiElement[] getChildren(PsiElement element) {
+        PsiElement[] childrenElement;
+        if (element instanceof PsiIfStatement) {
+            PsiIfStatement ifStatement = (PsiIfStatement) element;
+            childrenElement = ArrayUtils.addAll(
+                    ifStatement.getThenBranch().getChildren(),
+                    ifStatement.getElseBranch().getChildren()
+            );
+            childrenElement = ArrayUtils.add(childrenElement, ifStatement.getCondition());
+        } else if (element instanceof PsiMethodCallExpression) {
+            PsiMethodCallExpression expression = (PsiMethodCallExpression) element;
+            childrenElement = expression.getArgumentList().getExpressions();
+        } else {
+            childrenElement = element.getChildren();
+        }
+        return childrenElement;
+    }
 }

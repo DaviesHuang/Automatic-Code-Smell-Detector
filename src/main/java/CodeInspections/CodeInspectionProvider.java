@@ -11,7 +11,8 @@ public class CodeInspectionProvider implements InspectionToolProvider {
         return new Class[]{
                 ObjectComparisonInspection.class,
                 MethodComplexityInspection.class,
-                ReturnPrivateMutableFieldInspection.class
+                ReturnPrivateMutableFieldInspection.class,
+                ConditionalStatementInspection.class
         };
     }
 }
