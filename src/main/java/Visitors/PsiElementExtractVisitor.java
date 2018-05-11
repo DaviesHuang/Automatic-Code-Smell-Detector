@@ -8,6 +8,12 @@ import org.jetbrains.annotations.NotNull;
 
 public class PsiElementExtractVisitor extends JavaRecursiveElementWalkingVisitor {
 
+    private boolean refactored = false;
+
+    public boolean isRefactored() {
+        return refactored;
+    }
+
     private void extract(PsiElement element) {
         boolean shouldExtract = CyclomaticComplexityDialogsProvider.showIdentifyComplexElementDialog(element.getProject(), element);
         if (!shouldExtract) {
@@ -20,7 +26,7 @@ public class PsiElementExtractVisitor extends JavaRecursiveElementWalkingVisitor
                 false
         );
         assert processor != null;
-        ExtractMethodHandler.invokeOnElements(element.getProject(), processor, element.getContainingFile(), false);
+        refactored = ExtractMethodHandler.invokeOnElements(element.getProject(), processor, element.getContainingFile(), true);
     }
 
     private void extractElementArray(PsiElement[] elements) {
@@ -36,7 +42,7 @@ public class PsiElementExtractVisitor extends JavaRecursiveElementWalkingVisitor
                 false
         );
         assert processor != null;
-        ExtractMethodHandler.invokeOnElements(element.getProject(), processor, element.getContainingFile(), false);
+        refactored = ExtractMethodHandler.invokeOnElements(element.getProject(), processor, element.getContainingFile(), true);
     }
 
     @Override

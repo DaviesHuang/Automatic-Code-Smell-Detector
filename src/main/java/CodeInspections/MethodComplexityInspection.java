@@ -15,7 +15,7 @@ public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
 
     @NotNull
     public String getDisplayName() {
-        return "Method cyclomatic complexity analysis and refactoring";
+        return "Excessive cyclomatic complexity in method";
     }
 
     @NotNull
@@ -41,9 +41,13 @@ public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
                 method.accept(visitor);
                 final int complexity = visitor.getComplexity();
                 if (complexity >= threshold) {
-                    holder.registerProblem(method, getDisplayName(), quickFix);
+                    holder.registerProblem(method, getProblemDescription(complexity), quickFix);
                 }
             }
         };
+    }
+
+    private String getProblemDescription(int complexity) {
+        return getDisplayName() + " (Complexity: " + complexity + ")";
     }
 }

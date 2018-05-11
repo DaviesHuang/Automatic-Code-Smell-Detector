@@ -31,13 +31,15 @@ public class MethodComplexityFix implements LocalQuickFix {
         if (shouldRefactor) {
             PsiElement element = problemDescriptor.getPsiElement();
             final int originalComplexity = getComplexity(element);
-            refactor(element);
-            final int newComplexity = getComplexity(element);
-            CyclomaticComplexityDialogsProvider.showComplexityComparisonDialog(project, originalComplexity, newComplexity);
+            boolean refactored = refactor(element);
+            if (refactored) {
+                final int newComplexity = getComplexity(element);
+                CyclomaticComplexityDialogsProvider.showComplexityComparisonDialog(project, originalComplexity, newComplexity);
+            }
         }
     }
 
-    private void refactor(PsiElement element) {
+    private boolean refactor(PsiElement element) {
         int maxComplexity = 1;
         PsiElement complexElement = null;
         final int totalComplexity = getComplexity(element);
@@ -52,14 +54,15 @@ public class MethodComplexityFix implements LocalQuickFix {
         }
 
         if (complexElement == null) {
-            return;
+            return false;
         }
 
         if (maxComplexity >= totalComplexity) {
-            refactor(complexElement);
+            return refactor(complexElement);
         } else {
             PsiElementExtractVisitor extractVisitor = new PsiElementExtractVisitor();
             complexElement.accept(extractVisitor);
+            return extractVisitor.isRefactored();
         }
     }
 

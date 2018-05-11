@@ -36,7 +36,11 @@ public class IdentifyComplexElementDialog extends DialogWrapper {
 
     private void setLabelContent(String content) {
         if (content.length() > 80) {
-            content = content.substring(0, 40) + "\n\n...\n\n" + content.substring(content.length() - 40);
+            content = "<html><body>" +
+                    content.substring(0, 40) +
+                    "<br><br>...<br><br>" +
+                    content.substring(content.length() - 40) +
+                    "</body></html>";
         }
         elementLabel.setText(content);
     }

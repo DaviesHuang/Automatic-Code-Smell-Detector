@@ -3,6 +3,7 @@ package DialogProviders;
 import Dialogs.CyclomaticComplexity.ComplexityComparisonDialog;
 import Dialogs.CyclomaticComplexity.IdentifyComplexElementDialog;
 import Dialogs.CyclomaticComplexity.StartRefactoringDialog;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.PsiElement;
@@ -10,6 +11,9 @@ import com.intellij.psi.PsiElement;
 public class CyclomaticComplexityDialogsProvider {
 
     public static boolean showStartDialog(Project project) {
+        if (PropertiesComponent.getInstance().getBoolean(StartRefactoringDialog.DISMISSED)) {
+            return true;
+        }
         StartRefactoringDialog dialog = new StartRefactoringDialog(project, true);
         dialog.show();
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
