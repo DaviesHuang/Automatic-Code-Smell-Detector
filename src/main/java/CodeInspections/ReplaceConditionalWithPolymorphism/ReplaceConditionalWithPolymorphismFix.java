@@ -1,4 +1,4 @@
-package CodeInspections;
+package CodeInspections.ReplaceConditionalWithPolymorphism;
 
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemDescriptor;
@@ -6,7 +6,7 @@ import com.intellij.openapi.project.Project;
 import org.jetbrains.annotations.Nls;
 import org.jetbrains.annotations.NotNull;
 
-public class ConditionalStatementFix implements LocalQuickFix {
+public class ReplaceConditionalWithPolymorphismFix implements LocalQuickFix {
 
     @Nls
     @NotNull

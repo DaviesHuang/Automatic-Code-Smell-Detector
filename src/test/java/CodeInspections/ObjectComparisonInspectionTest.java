@@ -1,5 +1,6 @@
 package CodeInspections;
 
+import CodeInspections.ObjectComparison.ObjectComparisonInspection;
 import com.intellij.codeInsight.daemon.impl.HighlightInfo;
 import com.intellij.codeInsight.intention.IntentionAction;
 import com.intellij.testFramework.UsefulTestCase;

@@ -1,4 +1,4 @@
-package CodeInspections;
+package CodeInspections.ObjectComparison;
 
 import com.intellij.codeInspection.InspectionsBundle;
 import com.intellij.codeInspection.LocalQuickFix;
