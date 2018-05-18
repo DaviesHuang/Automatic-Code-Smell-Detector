@@ -1,5 +1,9 @@
 package CodeInspections;
 
+import CodeInspections.CyclomaticComplexity.MethodComplexityInspection;
+import CodeInspections.ObjectComparison.ObjectComparisonInspection;
+import CodeInspections.ReplaceConditionalWithPolymorphism.ReplaceConditionalWithPolymorphismInspection;
+import CodeInspections.ReturnPrivateMutableField.ReturnPrivateMutableFieldInspection;
 import com.intellij.codeInspection.InspectionToolProvider;
 import org.jetbrains.annotations.NotNull;
 
@@ -12,7 +16,7 @@ public class CodeInspectionProvider implements InspectionToolProvider {
                 ObjectComparisonInspection.class,
                 MethodComplexityInspection.class,
                 ReturnPrivateMutableFieldInspection.class,
-                ConditionalStatementInspection.class
+                ReplaceConditionalWithPolymorphismInspection.class
         };
     }
 }

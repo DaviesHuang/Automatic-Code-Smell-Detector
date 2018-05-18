@@ -1,4 +1,4 @@
-package CodeInspections;
+package CodeInspections.CyclomaticComplexity;
 
 import DialogProviders.CyclomaticComplexityDialogsProvider;
 import Visitors.PsiElementExtractVisitor;

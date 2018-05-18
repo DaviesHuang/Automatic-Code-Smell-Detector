@@ -1,5 +1,6 @@
-package CodeInspections;
+package CodeInspections.CyclomaticComplexity;
 
+import CodeInspections.CyclomaticComplexity.MethodComplexityFix;
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalQuickFix;
@@ -11,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
 
     private final LocalQuickFix quickFix = new MethodComplexityFix();
-    private final int threshold = 5;
+    private final int threshold = 8;
 
     @NotNull
     public String getDisplayName() {

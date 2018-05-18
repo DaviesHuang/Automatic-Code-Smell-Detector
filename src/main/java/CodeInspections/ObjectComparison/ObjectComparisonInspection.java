@@ -1,4 +1,4 @@
-package CodeInspections;
+package CodeInspections.ObjectComparison;
 
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;

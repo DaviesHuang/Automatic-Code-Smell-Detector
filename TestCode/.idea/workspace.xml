@@ -43,73 +43,77 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExtractForLoop.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ExtractForLoop.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MethodComplexityTests/ExtractForLoop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            <state relative-caret-position="360">
+              <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReturnPrivateMutableMemberSample.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ReturnPrivateMutableMemberSample.java">
+      <file leaf-file-name="SpecialNumber.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="25" column="12" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="558">
+              <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#842#843#0" expanded="true" />
+                <element signature="e#874#875#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HashMap.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/HashMap.java">
+      <file leaf-file-name="SpecialNumber1.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22734">
-              <caret line="1323" column="24" lean-forward="false" selection-start-line="1323" selection-start-column="18" selection-end-line="1323" selection-end-column="24" />
+            <state relative-caret-position="162">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#154#155#0" expanded="true" />
+                <element signature="e#178#179#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SpecialNumber2.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReturnPrivateMutableMemberSampleFixed.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ReturnPrivateMutableMemberSampleFixed.java">
+      <file leaf-file-name="SpecialNumber3.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber3.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="36">
+              <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="String.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/String.java">
+      <file leaf-file-name="SpecialNumberDefault.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumberDefault.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="110" column="19" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+            <state relative-caret-position="36">
+              <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AA.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AA.java">
+      <file leaf-file-name="AbstractSpecialNumber.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbstractSpecialNumber.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/ArrayList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5796">
-              <caret line="356" column="27" lean-forward="false" selection-start-line="356" selection-start-column="27" selection-end-line="356" selection-end-column="27" />
+            <state relative-caret-position="36">
+              <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -144,6 +148,19 @@
         <option value="$PROJECT_DIR$/src/CyclomaticComplexitySample.java" />
         <option value="$PROJECT_DIR$/src/MethodComplexityTests/ExtractIfStatement.java" />
         <option value="$PROJECT_DIR$/src/MethodComplexityTests/ExtractForLoop.java" />
+        <option value="$PROJECT_DIR$/src/ConditionalStatementTests/SwitchStatement1.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/SwitchStatement1.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SwitchStatementNew1.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SwitchStatement1.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SwitchStatementAbs.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbsSpecialNumber1.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbsSpecialNumber2.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbsSpecialNumber3.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber2.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber3.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumberDefault.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber.java" />
+        <option value="$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber1.java" />
       </list>
     </option>
   </component>
@@ -154,7 +171,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1985" />
+    <option name="x" value="65" />
     <option name="y" value="24" />
     <option name="width" value="1855" />
     <option name="height" value="951" />
@@ -301,7 +318,7 @@
       <showMembers />
       <showModules />
       <showLibraryContents />
-      <hideEmptyPackages />
+      <hideEmptyPackages ProjectPane="false" />
       <abbreviatePackageNames />
       <autoscrollToSource />
       <autoscrollFromSource />
@@ -310,9 +327,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -329,13 +344,22 @@
               <item name="TestCode" type="b2602c69:ProjectViewProjectNode" />
               <item name="TestCode" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="MethodComplexityTests" type="462c0819:PsiDirectoryNode" />
+              <item name="ReplaceConditionalWithPolymorphismTests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TestCode" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TestCode" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="ReplaceConditionalWithPolymorphismTests" type="462c0819:PsiDirectoryNode" />
+              <item name="example1" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -510,41 +534,89 @@
       <workItem from="1525858599244" duration="1000" />
       <workItem from="1525859846517" duration="67000" />
       <workItem from="1525860536245" duration="69000" />
+      <workItem from="1526151281787" duration="58000" />
+      <workItem from="1526224293798" duration="797000" />
+      <workItem from="1526226346706" duration="730000" />
+      <workItem from="1526227791320" duration="84000" />
+      <workItem from="1526228103801" duration="673000" />
+      <workItem from="1526228910699" duration="1153000" />
+      <workItem from="1526389653270" duration="181000" />
+      <workItem from="1526390566564" duration="94000" />
+      <workItem from="1526390938713" duration="106000" />
+      <workItem from="1526391103396" duration="82000" />
+      <workItem from="1526392136620" duration="53000" />
+      <workItem from="1526392264836" duration="19000" />
+      <workItem from="1526392445677" duration="84000" />
+      <workItem from="1526392558446" duration="29000" />
+      <workItem from="1526397423551" duration="64000" />
+      <workItem from="1526590289248" duration="68000" />
+      <workItem from="1526591068863" duration="331000" />
+      <workItem from="1526593680941" duration="171000" />
+      <workItem from="1526593910819" duration="383000" />
+      <workItem from="1526594458208" duration="190000" />
+      <workItem from="1526594775780" duration="62000" />
+      <workItem from="1526595040454" duration="75000" />
+      <workItem from="1526595346916" duration="83000" />
+      <workItem from="1526595498682" duration="78000" />
+      <workItem from="1526595687665" duration="122000" />
+      <workItem from="1526595995316" duration="68000" />
+      <workItem from="1526596137008" duration="58000" />
+      <workItem from="1526596286907" duration="46000" />
+      <workItem from="1526596513559" duration="95000" />
+      <workItem from="1526597004261" duration="143000" />
+      <workItem from="1526597568348" duration="383000" />
+      <workItem from="1526598038402" duration="84000" />
+      <workItem from="1526598833078" duration="66000" />
+      <workItem from="1526599445185" duration="39000" />
+      <workItem from="1526599577194" duration="46000" />
+      <workItem from="1526600688954" duration="38000" />
+      <workItem from="1526601155331" duration="58000" />
+      <workItem from="1526601382417" duration="832000" />
+      <workItem from="1526603468089" duration="727000" />
+      <workItem from="1526604596235" duration="81000" />
+      <workItem from="1526604734667" duration="104000" />
+      <workItem from="1526605475294" duration="254000" />
+      <workItem from="1526605836631" duration="279000" />
+      <workItem from="1526606190787" duration="109000" />
+      <workItem from="1526606403867" duration="97000" />
+      <workItem from="1526606988941" duration="45000" />
+      <workItem from="1526607837325" duration="39000" />
+      <workItem from="1526607966782" duration="186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18139000" />
+    <option name="totallyTimeSpent" value="27786000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1985" y="24" width="1855" height="951" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="951" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.5018868" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24797843" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914287" sideWeight="0.49811321" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32914287" sideWeight="0.49811321" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -560,128 +632,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ObjectComparisonSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReturnPrivateMutableMemberSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="9" lean-forward="false" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23814">
-          <caret line="1323" column="24" lean-forward="false" selection-start-line="1323" selection-start-column="18" selection-end-line="1323" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6408">
-          <caret line="356" column="27" lean-forward="false" selection-start-line="356" selection-start-column="27" selection-end-line="356" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3798">
-          <caret line="211" column="28" lean-forward="false" selection-start-line="211" selection-start-column="28" selection-end-line="211" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReturnPrivateMutableMemberSampleFixed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="28" column="18" lean-forward="true" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ObjectComparisonSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReturnPrivateMutableMemberSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/HashMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23814">
-          <caret line="1323" column="24" lean-forward="false" selection-start-line="1323" selection-start-column="18" selection-end-line="1323" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AA.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6408">
-          <caret line="356" column="27" lean-forward="false" selection-start-line="356" selection-start-column="27" selection-end-line="356" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3798">
-          <caret line="211" column="28" lean-forward="false" selection-start-line="211" selection-start-column="28" selection-end-line="211" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReturnPrivateMutableMemberSampleFixed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="14" lean-forward="false" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ObjectComparisonSample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3798">
@@ -908,7 +858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5796">
           <caret line="356" column="27" lean-forward="false" selection-start-line="356" selection-start-column="27" selection-end-line="356" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -916,7 +865,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22734">
           <caret line="1323" column="24" lean-forward="false" selection-start-line="1323" selection-start-column="18" selection-end-line="1323" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -924,7 +872,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="110" column="19" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -972,6 +919,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConditionalStatementTests/SwitchStatement1.java" />
     <entry file="file://$PROJECT_DIR$/src/MethodComplexityTests/ExtractIfStatement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
@@ -980,11 +928,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SwitchStatementNew1.java" />
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SwitchStatementAbs.java" />
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SwitchStatement1.java" />
     <entry file="file://$PROJECT_DIR$/src/MethodComplexityTests/ExtractForLoop.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="360">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbsSpecialNumber.java" />
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbsSpecialNumber1.java" />
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbsSpecialNumber2.java" />
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbsSpecialNumber3.java" />
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/AbstractSpecialNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/Default.java" />
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumberDefault.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="50" lean-forward="false" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#154#155#0" expanded="true" />
+            <element signature="e#178#179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReplaceConditionalWithPolymorphismTests/example1/SpecialNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+          <folding>
+            <element signature="e#842#843#0" expanded="true" />
+            <element signature="e#874#875#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

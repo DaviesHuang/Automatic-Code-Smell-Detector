@@ -1,5 +1,6 @@
-package CodeInspections;
+package CodeInspections.ReturnPrivateMutableField;
 
+import CodeInspections.ReturnPrivateMutableField.ReturnPrivateMutableFieldFix;
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalQuickFix;
