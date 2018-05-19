@@ -3,7 +3,7 @@ package ReplaceConditionalWithPolymorphismTests.example1;
 public class SpecialNumber {
 
     private int specialNumber = generateNum();
-    protected int i=0;
+    private int i=0;
 
     public SpecialNumber(int specialNumber) {
         this.specialNumber = specialNumber;
@@ -21,58 +21,6 @@ public class SpecialNumber {
 //    }
 
     public int getSpecialNumber() {
-        return ttt();
-    }
-
-    protected int ttt() {
-        return dfg();
-    }
-
-    protected int dfg() {
-        return ddfgw();
-    }
-
-    protected int ddfgw() {
-        return cvb();
-    }
-
-    protected int cvb() {
-        return vcx();
-    }
-
-    protected int vcx() {
-        return dddf();
-    }
-
-    protected int dddf() {
-        return fghj();
-    }
-
-    protected int fghj() {
-        return dfeq();
-    }
-
-    protected int dfeq() {
-        return dfvbn();
-    }
-
-    protected int dfvbn() {
-        return bvn();
-    }
-
-    protected int bvn() {
-        return zaq();
-    }
-
-    protected int zaq() {
-        return zsw();
-    }
-
-    protected int zsw() {
-        return dfgh();
-    }
-
-    protected int dfgh() {
         switch(specialNumber)
         {
             case 1:
@@ -86,6 +34,33 @@ public class SpecialNumber {
         }
     }
 
+    public int useParameterInOneCase(int num) {
+        switch(specialNumber)
+        {
+            case 1:
+                return num;
+            case 2:
+                return 2;
+            case 4:
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
+    public int usePrivateFieldInCase() {
+        switch(specialNumber)
+        {
+            case 0:
+                return i;
+            case 2:
+                return 2;
+            case 3:
+                return 3;
+            default:
+                return -1;
+        }
+    }
 
     private int generateNum() {
         return 1;

@@ -5,7 +5,7 @@ public class SpecialNumber3 extends SpecialNumber {
         super(specialNumber);
     }
 
-    @Override protected int dfgh() {
+    @Override protected int zzz() {
         return 3;
     }
 }
