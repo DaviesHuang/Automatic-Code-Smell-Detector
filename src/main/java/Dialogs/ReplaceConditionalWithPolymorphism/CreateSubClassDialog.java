@@ -3,10 +3,14 @@ package Dialogs.ReplaceConditionalWithPolymorphism;
 import DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider;
 import Visitors.LocateSwitchStatementVisitor;
 import a.i.A;
+import com.intellij.codeInsight.daemon.impl.quickfix.CreateConstructorFromSuperFix;
+import com.intellij.codeInsight.daemon.impl.quickfix.CreateConstructorMatchingSuperFix;
+import com.intellij.codeInsight.generation.ConstructorBodyGenerator;
 import com.intellij.codeInsight.generation.JavaOverrideMethodsHandler;
 import com.intellij.codeInsight.generation.OverrideImplementUtil;
 import com.intellij.codeInsight.generation.PsiMethodMember;
 import com.intellij.codeInsight.intention.impl.CreateSubclassAction;
+import com.intellij.lang.Language;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.command.WriteCommandAction;
@@ -107,7 +111,6 @@ public class CreateSubClassDialog extends DialogWrapper {
                         PsiClass subClass = CreateSubclassAction.createSubclass(psiClass, psiClass.getContainingFile().getContainingDirectory(), subClassName);
                         if (method != null) {
                             addMethodToClass(method, subClass, currentStatements);
-
                         }
                     }
                 });
@@ -133,7 +136,7 @@ public class CreateSubClassDialog extends DialogWrapper {
         return null;
     }
 
-    private void addMethodToClass(PsiMethod method, PsiClass psiClass, List<PsiStatement> statements) {
+    private void addMethodToClass(PsiMethod method, PsiClass aClass, List<PsiStatement> statements) {
         PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
         PsiMethod newMethod = factory.createMethodFromText(method.getText(), null);
         String codeBlockText = "";
@@ -147,7 +150,14 @@ public class CreateSubClassDialog extends DialogWrapper {
         WriteCommandAction.runWriteCommandAction(method.getProject(), () -> {
             newMethod.getBody().replace(codeBlock);
             newMethod.addAfter(annotation, null);
-            psiClass.add(newMethod);
+            aClass.add(newMethod);
+            addConstructorMethodFromSuper(aClass);
         });
+    }
+
+    private void addConstructorMethodFromSuper(PsiClass subClass) {
+        CreateConstructorMatchingSuperFix createConstructorMatchingSuperFix = new CreateConstructorMatchingSuperFix(subClass);
+        Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
+        createConstructorMatchingSuperFix.invoke(subClass.getProject(), editor, subClass.getContainingFile());
     }
 }

@@ -1,7 +1,11 @@
 package ReplaceConditionalWithPolymorphismTests.example1;
 
 public class SpecialNumber3 extends SpecialNumber {
-    @Override protected int ttt() {
+    public SpecialNumber3(int specialNumber) {
+        super(specialNumber);
+    }
+
+    @Override protected int dfgh() {
         return 3;
     }
 }

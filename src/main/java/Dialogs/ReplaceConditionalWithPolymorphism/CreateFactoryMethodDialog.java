@@ -22,7 +22,7 @@ public class CreateFactoryMethodDialog extends DialogWrapper {
         this.project = element.getProject();
         this.element = element;
         this.psiClass = psiClass;
-        setTitle("Create Abstract Class");
+        setTitle("Create Factory Method");
         init();
     }
 
@@ -40,7 +40,7 @@ public class CreateFactoryMethodDialog extends DialogWrapper {
     @Override
     protected Action getOKAction() {
         Action okAction = super.getOKAction();
-        okAction.putValue(Action.NAME, "Create Abstract Class");
+        okAction.putValue(Action.NAME, "Create Factory Method");
         return okAction;
     }
 
