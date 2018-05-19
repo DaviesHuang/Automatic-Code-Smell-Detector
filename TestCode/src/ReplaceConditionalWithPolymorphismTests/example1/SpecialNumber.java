@@ -1,66 +1,34 @@
 package ReplaceConditionalWithPolymorphismTests.example1;
 
-public abstract class SpecialNumber {
+public class SpecialNumber {
 
     private int specialNumber = generateNum();
+    protected int i=0;
+
+    public SpecialNumber(int specialNumber) {
+        this.specialNumber = specialNumber;
+    }
+
+    private static SpecialNumber instantiateTheRightThing(int num) {
+        switch(num) {
+            case 1:
+                return new SpecialNumber1();
+            case 2:
+                return new SpecialNumber2();
+            default:
+                return new SpecialNumberDefault();
+        }
+    }
 
     public int getSpecialNumber() {
-        return wwwd();
+        return ttt();
     }
 
-    private int wwwd() {
-        return cde();
-    }
-
-    private int cde() {
-        return wwwq();
-    }
-
-    private int wwwq() {
-        return qwer();
-    }
-
-    private int qwer() {
-        return qqqa();
-    }
-
-    private int qqqa() {
-        return zcf();
-    }
-
-    private int zcf() {
-        return wwqed();
-    }
-
-    private int wwqed() {
-        return sss();
-    }
-
-    private int sss() {
-        return ddfw();
-    }
-
-    private int ddfw() {
-        return ddd();
-    }
-
-    private int ddd() {
-        return ttyg();
-    }
-
-    private int ttyg() {
-        return wdqwfwef();
-    }
-
-    private int wdqwfwef() {
-        return dwdwqdc();
-    }
-
-    protected int dwdwqdc() {
+    protected int ttt() {
         switch(specialNumber)
         {
             case 1:
-                return 1;
+                return i++;
             case 2:
                 return 2;
             case 3:
@@ -69,6 +37,7 @@ public abstract class SpecialNumber {
                 return -1;
         }
     }
+
 
     private int generateNum() {
         return 1;
@@ -82,21 +51,12 @@ public abstract class SpecialNumber {
 
         //polymorphism
         int num = 1;
-        AbstractSpecialNumber absSpecialNumber;
+        SpecialNumber absSpecialNumber;
         absSpecialNumber = instantiateTheRightThing(num);
         System.out.println(absSpecialNumber.getSpecialNumber());
     }
 
-    private static AbstractSpecialNumber instantiateTheRightThing(int num) {
-        switch(num) {
-            case 1:
-                return new SpecialNumberOne();
-            case 2:
-                return new SpecialNumberTwo();
-            default:
-                return new SpecialNumberOne();
-        }
-    }
+
 
 }
 

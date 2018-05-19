@@ -1,30 +1,28 @@
 package Dialogs.ReplaceConditionalWithPolymorphism;
 
-import DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiMethod;
-import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.refactoring.extractMethod.ExtractMethodHandler;
-import com.intellij.refactoring.extractMethod.ExtractMethodProcessor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 
-public class ExtractSwitchStatementDialog extends DialogWrapper {
+public class CreateFactoryMethodDialog extends DialogWrapper {
 
     private JPanel myMainPanel;
+    private Project project;
     private PsiElement element;
     private PsiClass psiClass;
 
-    public ExtractSwitchStatementDialog(PsiClass psiClass, @Nullable PsiElement element, boolean canBeParent) {
+    public CreateFactoryMethodDialog(PsiClass psiClass, @Nullable PsiElement element, boolean canBeParent) {
         super(element.getProject(), canBeParent);
+        this.project = element.getProject();
         this.element = element;
         this.psiClass = psiClass;
-        setTitle("Extract Switch Statement.");
+        setTitle("Create Abstract Class");
         init();
     }
 
@@ -42,7 +40,7 @@ public class ExtractSwitchStatementDialog extends DialogWrapper {
     @Override
     protected Action getOKAction() {
         Action okAction = super.getOKAction();
-        okAction.putValue(Action.NAME, "Extract");
+        okAction.putValue(Action.NAME, "Create Abstract Class");
         return okAction;
     }
 
@@ -56,17 +54,10 @@ public class ExtractSwitchStatementDialog extends DialogWrapper {
     }
 
     private boolean performAction(PsiElement element) {
-        ExtractMethodProcessor processor = ExtractMethodHandler.getProcessor(
-                element.getProject(),
-                new PsiElement[]{element},
-                element.getContainingFile(),
-                false
-        );
-        assert processor != null;
-        return ExtractMethodHandler.invokeOnElements(element.getProject(), processor, element.getContainingFile(), true);
+        return false;
     }
 
     private void performNextStep() {
-        ReplaceConditionalWithPolymorphismDialogsProvider.showEnsureExtractedMethodVisibilityDialog(psiClass, element);
+
     }
 }
