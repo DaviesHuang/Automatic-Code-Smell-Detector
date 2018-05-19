@@ -66,7 +66,7 @@ public class CreateSubClassDialog extends DialogWrapper {
     @Override
     protected Action getOKAction() {
         Action okAction = super.getOKAction();
-        okAction.putValue(Action.NAME, "Create Abstract Class");
+        okAction.putValue(Action.NAME, "Derive Subclasses");
         return okAction;
     }
 

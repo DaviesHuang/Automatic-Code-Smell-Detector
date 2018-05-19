@@ -34,6 +34,21 @@ public class SpecialNumber {
         }
     }
 
+    public int containOtherStatement() {
+        i++;
+        switch(specialNumber)
+        {
+            case 5:
+                return i++;
+            case 2:
+                return 2;
+            case 3:
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
     public int useParameterInOneCase(int num) {
         switch(specialNumber)
         {
