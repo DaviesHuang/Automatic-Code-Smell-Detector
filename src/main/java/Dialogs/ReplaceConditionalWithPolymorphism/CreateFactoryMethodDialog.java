@@ -5,6 +5,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiMethod;
+import com.intellij.refactoring.replaceConstructorWithFactory.ReplaceConstructorWithFactoryDialog;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -15,13 +17,13 @@ public class CreateFactoryMethodDialog extends DialogWrapper {
     private JPanel myMainPanel;
     private Project project;
     private PsiElement element;
-    private PsiClass psiClass;
+    private PsiClass aClass;
 
-    public CreateFactoryMethodDialog(PsiClass psiClass, @Nullable PsiElement element, boolean canBeParent) {
+    public CreateFactoryMethodDialog(PsiClass aClass, @Nullable PsiElement element, boolean canBeParent) {
         super(element.getProject(), canBeParent);
         this.project = element.getProject();
         this.element = element;
-        this.psiClass = psiClass;
+        this.aClass = aClass;
         setTitle("Create Factory Method");
         init();
     }
@@ -54,6 +56,11 @@ public class CreateFactoryMethodDialog extends DialogWrapper {
     }
 
     private boolean performAction(PsiElement element) {
+        for (PsiMethod method : aClass.getAllMethods()) {
+            if (method.isConstructor()) {
+                new MyReplaceConstructorWithFactoryDialog(project, method, method.getContainingClass()).show();
+            }
+        }
         return false;
     }
 
