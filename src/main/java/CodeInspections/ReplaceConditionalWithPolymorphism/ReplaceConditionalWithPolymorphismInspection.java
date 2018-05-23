@@ -32,7 +32,6 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
         return new JavaElementVisitor() {
-
             @Override
             public void visitSwitchStatement(PsiSwitchStatement statement) {
                 super.visitStatement(statement);
@@ -46,13 +45,6 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
                     holder.registerProblem(statement, getDisplayName(), quickFix);
                 }
             }
-
-            @Override
-            public void visitIfStatement(PsiIfStatement statement) {
-                super.visitStatement(statement);
-
-            }
-
         };
     }
 
