@@ -16,6 +16,8 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.lang.reflect.Modifier;
 
+import static PsiUtils.PsiUtils.setAccessToProtectedIfPrivate;
+
 public class EnsureExtractedMethodVisibilityDialog extends DialogWrapper {
 
     private JPanel myMainPanel;
@@ -59,14 +61,7 @@ public class EnsureExtractedMethodVisibilityDialog extends DialogWrapper {
 
     private boolean performAction(PsiElement element) {
         PsiMethod method = PsiUtils.getMethodFromClass(psiClass, element.getText());
-        PsiModifierList modifierList = method.getModifierList();
-        if (modifierList.hasModifierProperty(PsiModifier.PRIVATE)) {
-            WriteCommandAction.runWriteCommandAction(method.getProject(), () -> {
-                modifierList.setModifierProperty(PsiModifier.PRIVATE, false);
-                modifierList.setModifierProperty(PsiModifier.PROTECTED, true);
-            });
-
-        }
+        setAccessToProtectedIfPrivate(method);
         return true;
     }
 

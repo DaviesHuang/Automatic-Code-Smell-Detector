@@ -1,9 +1,8 @@
 package PsiUtils;
 
 import Visitors.LocateSwitchStatementVisitor;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiMethod;
-import com.intellij.psi.PsiSwitchStatement;
+import com.intellij.openapi.command.WriteCommandAction;
+import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
 
 public class PsiUtils {
@@ -16,5 +15,15 @@ public class PsiUtils {
             return PsiTreeUtil.getParentOfType(switchStatement, PsiMethod.class);
         }
         return null;
+    }
+
+    public static void setAccessToProtectedIfPrivate(PsiModifierListOwner element) {
+        if (element.hasModifierProperty(PsiModifier.PRIVATE)) {
+            PsiModifierList modifierList = element.getModifierList();
+            WriteCommandAction.runWriteCommandAction(element.getProject(), () -> {
+                modifierList.setModifierProperty(PsiModifier.PRIVATE, false);
+                modifierList.setModifierProperty(PsiModifier.PROTECTED, true);
+            });
+        }
     }
 }

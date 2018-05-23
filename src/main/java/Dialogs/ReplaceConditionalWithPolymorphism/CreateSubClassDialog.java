@@ -2,6 +2,7 @@ package Dialogs.ReplaceConditionalWithPolymorphism;
 
 import DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider;
 import Visitors.LocateSwitchStatementVisitor;
+import Visitors.PrivateFieldVisitor;
 import a.i.A;
 import com.intellij.codeInsight.daemon.impl.quickfix.CreateConstructorFromSuperFix;
 import com.intellij.codeInsight.daemon.impl.quickfix.CreateConstructorMatchingSuperFix;
@@ -104,14 +105,11 @@ public class CreateSubClassDialog extends DialogWrapper {
                 String subClassName = classPrefix + (switchLabelStatement.isDefaultCase() ?
                         "Default" :
                         switchLabelStatement.getCaseValue().getText());
-
-                ApplicationManager.getApplication().invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        PsiClass subClass = CreateSubclassAction.createSubclass(psiClass, psiClass.getContainingFile().getContainingDirectory(), subClassName);
-                        if (method != null) {
-                            addMethodToClass(method, subClass, currentStatements);
-                        }
+                PsiDirectory directory = psiClass.getContainingFile().getContainingDirectory();
+                ApplicationManager.getApplication().invokeLater(() -> {
+                    PsiClass subClass = CreateSubclassAction.createSubclass(psiClass, directory, subClassName);
+                    if (method != null) {
+                        addMethodToClass(method, subClass, currentStatements);
                     }
                 });
             }
@@ -141,6 +139,7 @@ public class CreateSubClassDialog extends DialogWrapper {
         PsiMethod newMethod = factory.createMethodFromText(method.getText(), null);
         String codeBlockText = "";
         for (PsiStatement statement : statements) {
+            updatePrivateAccessToProtected(statement);
             codeBlockText += statement.getText() + "\n";
         }
         codeBlockText = "{ " + codeBlockText + " }";
@@ -153,6 +152,11 @@ public class CreateSubClassDialog extends DialogWrapper {
             aClass.add(newMethod);
             addConstructorMethodFromSuper(aClass);
         });
+    }
+
+    private void updatePrivateAccessToProtected(PsiStatement statement) {
+        PrivateFieldVisitor visitor = new PrivateFieldVisitor();
+        statement.accept(visitor);
     }
 
     private void addConstructorMethodFromSuper(PsiClass subClass) {

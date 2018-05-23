@@ -26,6 +26,8 @@ public class SpecialNumber {
             case 1:
                 return i++;
             case 2:
+                String f = "";
+                f += "hi";
                 return 2;
             case 3:
                 return 3;
@@ -68,6 +70,20 @@ public class SpecialNumber {
         {
             case 0:
                 return i;
+            case 2:
+                return 2;
+            case 3:
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
+    public int callPrivateMethodInCase() {
+        switch(specialNumber)
+        {
+            case 0:
+                return generateNum();
             case 2:
                 return 2;
             case 3:
