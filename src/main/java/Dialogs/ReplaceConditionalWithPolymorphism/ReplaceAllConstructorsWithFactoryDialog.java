@@ -2,6 +2,7 @@ package Dialogs.ReplaceConditionalWithPolymorphism;
 
 import com.intellij.ide.util.TreeClassChooser;
 import com.intellij.ide.util.TreeClassChooserFactory;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.help.HelpManager;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.project.Project;
@@ -25,6 +26,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+
+import static DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider.showReplaceConstructorsWithFactoryDialog;
 
 public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
     private NameSuggestionsField myNameField;
@@ -110,12 +113,9 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
         myNameField.addDataChangedListener(myNameChangedListener);
         panel.add(myNameField.getComponent(), gbc);
 
-        JPanel targetClassPanel = createTargetPanel();
-        //panel.add(targetClassPanel, gbc);
-
+        createTargetPanel();
 
         return panel;
-
     }
 
     private JPanel createTargetPanel() {
@@ -161,11 +161,11 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
         }
     }
 
-
     protected JComponent createCenterPanel() {
         return null;
     }
 
+    @Override
     protected void doAction() {
         final Project project = getProject();
         final PsiManager manager = PsiManager.getInstance(project);
@@ -184,8 +184,9 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
         for (PsiMethod method : myConstructors) {
             invokeRefactoring(new ReplaceConstructorWithFactoryProcessor(project, method, myContainingClass, targetClass, getName()));
         }
-    }
 
+        ApplicationManager.getApplication().invokeLater(this::performNextStep);
+    }
 
     @Override
     protected void canRun() throws ConfigurationException {
@@ -194,5 +195,9 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
         if (!nameHelper.isIdentifier(name)) {
             throw new ConfigurationException("\'" + name + "\' is invalid factory method name");
         }
+    }
+
+    private void performNextStep() {
+//        showReplaceConstructorsWithFactoryDialog(psiClass);
     }
 }

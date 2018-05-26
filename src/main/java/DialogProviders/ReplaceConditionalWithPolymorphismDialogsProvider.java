@@ -35,12 +35,6 @@ public class ReplaceConditionalWithPolymorphismDialogsProvider {
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
     }
 
-    public static boolean showCreateFactoryMethodDialog(PsiClass psiClass, PsiElement element) {
-        CreateFactoryMethodDialog dialog = new CreateFactoryMethodDialog(psiClass, element, true);
-        dialog.show();
-        return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
-    }
-
     public static boolean showReplaceConstructorsWithFactoryDialog(PsiClass psiClass) {
         PsiMethod[] constructors = getAllConstructors(psiClass);
         ReplaceAllConstructorsWithFactoryDialog dialog =
