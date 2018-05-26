@@ -26,10 +26,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import static DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider.showReplaceConstructorsWithFactoryDialog;
+import static DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider.showPushSwitchStatementToFactoryDialog;
 
 public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
+    private PsiElement mySwitchStatement;
     private NameSuggestionsField myNameField;
     private final ReferenceEditorWithBrowseButton myTfTargetClassName;
     private JComboBox myTargetClassNameCombo;
@@ -37,9 +40,11 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
     private final PsiMethod[] myConstructors;
     private final boolean myIsInner;
     private NameSuggestionsField.DataChanged myNameChangedListener;
+    private final List<PsiMethod> originalMethodList;
 
-    public ReplaceAllConstructorsWithFactoryDialog(Project project, PsiMethod[] constructors, PsiClass containingClass) {
+    public ReplaceAllConstructorsWithFactoryDialog(Project project, PsiMethod[] constructors, PsiClass containingClass, PsiElement switchStatement) {
         super(project, true);
+        mySwitchStatement = switchStatement;
         myContainingClass = containingClass;
         myConstructors = constructors;
         myIsInner = myContainingClass.getContainingClass() != null
@@ -48,6 +53,8 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
         setTitle(ReplaceConstructorWithFactoryHandler.REFACTORING_NAME);
 
         myTfTargetClassName = JavaReferenceEditorUtil.createReferenceEditorWithBrowseButton(new ChooseClassAction(), "", project, true);
+        PsiMethod[] originalMethods = containingClass.getMethods();
+        originalMethodList = Arrays.asList(originalMethods);
 
         init();
     }
@@ -198,6 +205,10 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
     }
 
     private void performNextStep() {
-//        showReplaceConstructorsWithFactoryDialog(psiClass);
+        PsiMethod[] methods = myContainingClass.getMethods();
+        ArrayList<PsiMethod> factoryMethods = new ArrayList<>();
+        //TODO: add to factory methods if the method is not in original method list
+        System.out.println("new: " + methods.length);
+        showPushSwitchStatementToFactoryDialog(myContainingClass, mySwitchStatement);
     }
 }

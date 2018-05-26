@@ -1,40 +1,22 @@
 package Dialogs.ReplaceConditionalWithPolymorphism;
 
-import DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider;
 import Visitors.LocateSwitchStatementVisitor;
 import Visitors.PrivateFieldVisitor;
-import a.i.A;
-import com.intellij.codeInsight.daemon.impl.quickfix.CreateConstructorFromSuperFix;
 import com.intellij.codeInsight.daemon.impl.quickfix.CreateConstructorMatchingSuperFix;
-import com.intellij.codeInsight.generation.ConstructorBodyGenerator;
-import com.intellij.codeInsight.generation.JavaOverrideMethodsHandler;
-import com.intellij.codeInsight.generation.OverrideImplementUtil;
-import com.intellij.codeInsight.generation.PsiMethodMember;
 import com.intellij.codeInsight.intention.impl.CreateSubclassAction;
-import com.intellij.lang.Language;
 import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.application.ModalityState;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.EditorFactory;
-import com.intellij.openapi.editor.actionSystem.EditorActionManager;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.*;
-import com.intellij.psi.search.ProjectScope;
-import com.intellij.psi.search.PsiShortNamesCache;
-import com.intellij.psi.util.PsiClassUtil;
 import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.refactoring.extractMethod.ExtractMethodHandler;
-import com.intellij.refactoring.extractMethod.ExtractMethodProcessor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import static DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider.showReplaceConstructorsWithFactoryDialog;
@@ -123,7 +105,7 @@ public class CreateSubClassDialog extends DialogWrapper {
     }
 
     private void performNextStep() {
-        showReplaceConstructorsWithFactoryDialog(psiClass);
+        showReplaceConstructorsWithFactoryDialog(psiClass, element);
     }
 
     private PsiMethod getMethod() {

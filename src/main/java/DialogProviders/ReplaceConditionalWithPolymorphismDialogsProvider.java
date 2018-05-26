@@ -35,10 +35,16 @@ public class ReplaceConditionalWithPolymorphismDialogsProvider {
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
     }
 
-    public static boolean showReplaceConstructorsWithFactoryDialog(PsiClass psiClass) {
+    public static boolean showReplaceConstructorsWithFactoryDialog(PsiClass psiClass, PsiElement switchStatement) {
         PsiMethod[] constructors = getAllConstructors(psiClass);
         ReplaceAllConstructorsWithFactoryDialog dialog =
-                new ReplaceAllConstructorsWithFactoryDialog(psiClass.getProject(), constructors, psiClass);
+                new ReplaceAllConstructorsWithFactoryDialog(psiClass.getProject(), constructors, psiClass, switchStatement);
+        dialog.show();
+        return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
+    }
+
+    public static boolean showPushSwitchStatementToFactoryDialog(PsiClass psiClass, PsiElement switchStatement) {
+        PushSwitchStatementToFactoryDialog dialog = new PushSwitchStatementToFactoryDialog(psiClass, switchStatement);
         dialog.show();
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
     }

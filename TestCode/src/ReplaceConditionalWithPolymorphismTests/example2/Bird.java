@@ -9,14 +9,19 @@ public class Bird {
     }
 
     private BirdType type;
-    private int baseSpeed;
+    protected int baseSpeed;
 
-    public Bird(BirdType type, int baseSpeed) {
+    Bird(BirdType type, int baseSpeed) {
         this.type = type;
         this.baseSpeed = baseSpeed;
     }
 
     public int getSpeed() {
+        String hmm = "";
+        return getCorrectSpeed();
+    }
+
+    protected int getCorrectSpeed() {
         switch (type) {
             case PENGUIN:
                 return 1;
@@ -25,8 +30,9 @@ public class Bird {
             case NORWEGIAN_BLUE:
                 int totalSpeed = baseSpeed > 10 ? baseSpeed : 10;
                 return totalSpeed;
+            default:
+                    return 0;
         }
-        return -1;
     }
 
 }
