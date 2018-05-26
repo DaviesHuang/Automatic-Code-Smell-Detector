@@ -5,22 +5,32 @@ public class SpecialNumber {
     private int specialNumber = generateNum();
     protected int i=0;
 
-    public SpecialNumber(int specialNumber) {
+    SpecialNumber(int specialNumber) {
         this.specialNumber = specialNumber;
     }
 
-    public SpecialNumber(String s) {
+    private SpecialNumber(String s) {
         this.specialNumber = 0;
     }
 
-//    private static SpecialNumber instantiateTheRightThing(int num) {
-//        switch(num) {
+    public static SpecialNumber createSpecialNumber(int specialNumber) {
+        return new SpecialNumber(specialNumber);
+    }
+
+    public static SpecialNumber createSpecialNumber(String s) {
+        return new SpecialNumber(s);
+    }
+
+//    public static SpecialNumber createSpecialNumber(int specialNumber) {
+//        switch (specialNumber) {
 //            case 1:
-//                return new SpecialNumber1();
+//                return new SpecialNumber1(specialNumber);
 //            case 2:
-//                return new SpecialNumber2();
+//                return new SpecialNumber2(specialNumber);
+//            case 3:
+//                return new SpecialNumber3(specialNumber);
 //            default:
-//                return new SpecialNumberDefault();
+//                return new SpecialNumberDefault(specialNumber);
 //        }
 //    }
 

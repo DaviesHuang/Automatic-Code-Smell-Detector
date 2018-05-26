@@ -6,7 +6,6 @@ import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
-import com.intellij.refactoring.replaceConstructorWithFactory.ReplaceConstructorWithFactoryDialog;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -56,11 +55,11 @@ public class CreateFactoryMethodDialog extends DialogWrapper {
     }
 
     private boolean performAction(PsiElement element) {
-        for (PsiMethod method : aClass.getAllMethods()) {
-            if (method.isConstructor()) {
-                new MyReplaceConstructorWithFactoryDialog(project, method, method.getContainingClass()).show();
-            }
-        }
+//        for (PsiMethod method : aClass.getAllMethods()) {
+//            if (method.isConstructor()) {
+//                new ReplaceAllConstructorsWithFactoryDialog(project, method, method.getContainingClass()).show();
+//            }
+//        }
         return false;
     }
 

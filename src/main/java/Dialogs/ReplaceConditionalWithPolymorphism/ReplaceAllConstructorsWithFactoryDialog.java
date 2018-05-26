@@ -26,19 +26,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class MyReplaceConstructorWithFactoryDialog extends RefactoringDialog {
+public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
     private NameSuggestionsField myNameField;
     private final ReferenceEditorWithBrowseButton myTfTargetClassName;
     private JComboBox myTargetClassNameCombo;
     private final PsiClass myContainingClass;
-    private final PsiMethod myConstructor;
+    private final PsiMethod[] myConstructors;
     private final boolean myIsInner;
     private NameSuggestionsField.DataChanged myNameChangedListener;
 
-    public MyReplaceConstructorWithFactoryDialog(Project project, PsiMethod constructor, PsiClass containingClass) {
+    public ReplaceAllConstructorsWithFactoryDialog(Project project, PsiMethod[] constructors, PsiClass containingClass) {
         super(project, true);
         myContainingClass = containingClass;
-        myConstructor = constructor;
+        myConstructors = constructors;
         myIsInner = myContainingClass.getContainingClass() != null
                 && !myContainingClass.hasModifierProperty(PsiModifier.STATIC);
 
@@ -80,14 +80,24 @@ public class MyReplaceConstructorWithFactoryDialog extends RefactoringDialog {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.anchor = GridBagConstraints.WEST;
         gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = JBUI.insets(4, 0, 4, 4);
 
-        gbc.insets = JBUI.insets(4, 0, 4, 8);
+        //first line
         gbc.gridwidth = 1;
         gbc.gridx = 0;
         gbc.gridy = 0;
+        panel.add(new JLabel("Step 4:"), gbc);
+
+        //second line
+        gbc.gridy++;
+        panel.add(new JLabel("Replace constructor with factory method to instantiate the correct object"), gbc);
+
+        //third line
+        gbc.gridwidth = 1;
+        gbc.gridy++;
         panel.add(new JLabel(RefactoringBundle.message("factory.method.name.label")), gbc);
 
-        gbc.gridx++;
+        gbc.gridy++;
         gbc.weightx = 1.0;
         @NonNls final String[] nameSuggestions = new String[]{
                 "create" + myContainingClass.getName(),
@@ -101,11 +111,7 @@ public class MyReplaceConstructorWithFactoryDialog extends RefactoringDialog {
         panel.add(myNameField.getComponent(), gbc);
 
         JPanel targetClassPanel = createTargetPanel();
-
-        gbc.gridx = 0;
-        gbc.gridy++;
-        gbc.gridwidth = 2;
-        panel.add(targetClassPanel, gbc);
+        //panel.add(targetClassPanel, gbc);
 
 
         return panel;
@@ -175,8 +181,9 @@ public class MyReplaceConstructorWithFactoryDialog extends RefactoringDialog {
 
         if (!CommonRefactoringUtil.checkReadOnlyStatus(project, targetClass)) return;
 
-        invokeRefactoring(new ReplaceConstructorWithFactoryProcessor(project, myConstructor, myContainingClass,
-                targetClass, getName()));
+        for (PsiMethod method : myConstructors) {
+            invokeRefactoring(new ReplaceConstructorWithFactoryProcessor(project, method, myContainingClass, targetClass, getName()));
+        }
     }
 
 

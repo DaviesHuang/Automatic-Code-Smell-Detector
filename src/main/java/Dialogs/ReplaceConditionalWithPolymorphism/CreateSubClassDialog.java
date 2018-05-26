@@ -37,6 +37,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider.showReplaceConstructorsWithFactoryDialog;
+
 public class CreateSubClassDialog extends DialogWrapper {
 
     private JPanel myMainPanel;
@@ -121,7 +123,7 @@ public class CreateSubClassDialog extends DialogWrapper {
     }
 
     private void performNextStep() {
-        ReplaceConditionalWithPolymorphismDialogsProvider.showCreateFactoryMethodDialog(psiClass, element);
+        showReplaceConstructorsWithFactoryDialog(psiClass);
     }
 
     private PsiMethod getMethod() {

@@ -5,6 +5,9 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiMethod;
+
+import static PsiUtils.PsiUtils.getAllConstructors;
 
 public class ReplaceConditionalWithPolymorphismDialogsProvider {
 
@@ -34,6 +37,14 @@ public class ReplaceConditionalWithPolymorphismDialogsProvider {
 
     public static boolean showCreateFactoryMethodDialog(PsiClass psiClass, PsiElement element) {
         CreateFactoryMethodDialog dialog = new CreateFactoryMethodDialog(psiClass, element, true);
+        dialog.show();
+        return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
+    }
+
+    public static boolean showReplaceConstructorsWithFactoryDialog(PsiClass psiClass) {
+        PsiMethod[] constructors = getAllConstructors(psiClass);
+        ReplaceAllConstructorsWithFactoryDialog dialog =
+                new ReplaceAllConstructorsWithFactoryDialog(psiClass.getProject(), constructors, psiClass);
         dialog.show();
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
     }

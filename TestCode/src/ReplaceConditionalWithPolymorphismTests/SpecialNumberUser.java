@@ -6,7 +6,7 @@ public class SpecialNumberUser {
 
     public static void main(String[] args) {
         //conditional
-        SpecialNumber specialNumber = new SpecialNumber(1);
+        SpecialNumber specialNumber = SpecialNumber.createSpecialNumber(1);
         specialNumber.getSpecialNumber();
 
         //polymorphism

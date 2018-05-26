@@ -5,6 +5,9 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PsiUtils {
 
     public static PsiMethod getMethodFromClass(PsiClass psiClass, String targetMethodText) {
@@ -25,5 +28,16 @@ public class PsiUtils {
                 modifierList.setModifierProperty(PsiModifier.PROTECTED, true);
             });
         }
+    }
+
+    public static PsiMethod[] getAllConstructors(PsiClass psiClass) {
+        PsiMethod[] methods = psiClass.getMethods();
+        List<PsiMethod> constructors = new ArrayList<>();
+        for (PsiMethod method : methods) {
+            if (method.isConstructor()) {
+                constructors.add(method);
+            }
+        }
+        return constructors.toArray(new PsiMethod[constructors.size()]);
     }
 }
