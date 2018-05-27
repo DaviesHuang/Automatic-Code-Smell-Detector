@@ -40,4 +40,10 @@ public class PsiUtils {
         }
         return constructors.toArray(new PsiMethod[constructors.size()]);
     }
+
+    public static PsiCodeBlock createCodeBlockFromStatement(PsiStatement statement) {
+        PsiElementFactory factory = JavaPsiFacade.getInstance(statement.getProject()).getElementFactory();
+        String codeBlockText = "{" + statement.getText() + "}";
+        return factory.createCodeBlockFromText(codeBlockText, null);
+    }
 }

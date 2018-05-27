@@ -16,6 +16,11 @@ public class Bird {
         this.baseSpeed = baseSpeed;
     }
 
+    Bird(BirdType type, int baseSpeed, int additionalSpeed) {
+        this.type = type;
+        this.baseSpeed = baseSpeed;
+    }
+
     public int getSpeed() {
         String hmm = "";
         return getCorrectSpeed();
@@ -31,7 +36,7 @@ public class Bird {
                 int totalSpeed = baseSpeed > 10 ? baseSpeed : 10;
                 return totalSpeed;
             default:
-                    return 0;
+                return 0;
         }
     }
 

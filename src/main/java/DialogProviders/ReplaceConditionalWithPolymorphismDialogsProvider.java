@@ -7,6 +7,8 @@ import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
 
+import java.util.List;
+
 import static PsiUtils.PsiUtils.getAllConstructors;
 
 public class ReplaceConditionalWithPolymorphismDialogsProvider {
@@ -43,8 +45,8 @@ public class ReplaceConditionalWithPolymorphismDialogsProvider {
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
     }
 
-    public static boolean showPushSwitchStatementToFactoryDialog(PsiClass psiClass, PsiElement switchStatement) {
-        PushSwitchStatementToFactoryDialog dialog = new PushSwitchStatementToFactoryDialog(psiClass, switchStatement);
+    public static boolean showPushSwitchStatementToFactoryDialog(PsiClass psiClass, PsiElement switchStatement, List<PsiMethod> factoryMethods) {
+        PushSwitchStatementToFactoryDialog dialog = new PushSwitchStatementToFactoryDialog(psiClass, switchStatement, factoryMethods);
         dialog.show();
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
     }

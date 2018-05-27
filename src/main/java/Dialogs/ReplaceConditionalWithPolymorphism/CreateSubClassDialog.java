@@ -27,6 +27,7 @@ public class CreateSubClassDialog extends DialogWrapper {
     private Project project;
     private PsiElement element;
     private PsiClass psiClass;
+    private PsiClass subClass;
 
     public CreateSubClassDialog(PsiClass psiClass, @Nullable PsiElement element, boolean canBeParent) {
         super(element.getProject(), canBeParent);
@@ -91,10 +92,13 @@ public class CreateSubClassDialog extends DialogWrapper {
                         switchLabelStatement.getCaseValue().getText());
                 PsiDirectory directory = psiClass.getContainingFile().getContainingDirectory();
                 ApplicationManager.getApplication().invokeLater(() -> {
-                    PsiClass subClass = CreateSubclassAction.createSubclass(psiClass, directory, subClassName);
+                    WriteCommandAction.runWriteCommandAction(project, () -> {
+                        subClass = CreateSubclassAction.createSubclass(psiClass, directory, subClassName);
+                    });
                     if (method != null) {
                         addMethodToClass(method, subClass, currentStatements);
                     }
+
                 });
             }
             return true;
@@ -130,7 +134,7 @@ public class CreateSubClassDialog extends DialogWrapper {
 
         PsiCodeBlock codeBlock = factory.createCodeBlockFromText(codeBlockText, null);
         PsiAnnotation annotation = factory.createAnnotationFromText("@Override", null);
-        WriteCommandAction.runWriteCommandAction(method.getProject(), () -> {
+        WriteCommandAction.runWriteCommandAction(project, () -> {
             newMethod.getBody().replace(codeBlock);
             newMethod.addAfter(annotation, null);
             aClass.add(newMethod);

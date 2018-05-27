@@ -3,9 +3,12 @@ package Dialogs.ReplaceConditionalWithPolymorphism;
 import com.intellij.ide.util.TreeClassChooser;
 import com.intellij.ide.util.TreeClassChooserFactory;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.fileEditor.FileEditorManager;
+import com.intellij.openapi.fileEditor.impl.FileEditorManagerImpl;
 import com.intellij.openapi.help.HelpManager;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.*;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.refactoring.HelpID;
@@ -39,11 +42,13 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
     private final PsiClass myContainingClass;
     private final PsiMethod[] myConstructors;
     private final boolean myIsInner;
+    private final Project project;
     private NameSuggestionsField.DataChanged myNameChangedListener;
     private final List<PsiMethod> originalMethodList;
 
     public ReplaceAllConstructorsWithFactoryDialog(Project project, PsiMethod[] constructors, PsiClass containingClass, PsiElement switchStatement) {
         super(project, true);
+        this.project = project;
         mySwitchStatement = switchStatement;
         myContainingClass = containingClass;
         myConstructors = constructors;
@@ -174,7 +179,9 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
 
     @Override
     protected void doAction() {
-        final Project project = getProject();
+        VirtualFile file = mySwitchStatement.getContainingFile().getVirtualFile();
+        FileEditorManager.getInstance(project).openFile(file, true, true);
+
         final PsiManager manager = PsiManager.getInstance(project);
         final String targetClassName = getTargetClassName();
         final PsiClass targetClass =
@@ -207,8 +214,11 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
     private void performNextStep() {
         PsiMethod[] methods = myContainingClass.getMethods();
         ArrayList<PsiMethod> factoryMethods = new ArrayList<>();
-        //TODO: add to factory methods if the method is not in original method list
-        System.out.println("new: " + methods.length);
-        showPushSwitchStatementToFactoryDialog(myContainingClass, mySwitchStatement);
+        for (PsiMethod method : methods) {
+            if (!originalMethodList.contains(method)) {
+                factoryMethods.add(method);
+            }
+        }
+        showPushSwitchStatementToFactoryDialog(myContainingClass, mySwitchStatement, factoryMethods);
     }
 }
