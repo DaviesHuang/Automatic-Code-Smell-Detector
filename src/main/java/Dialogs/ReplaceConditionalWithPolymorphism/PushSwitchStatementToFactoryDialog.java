@@ -69,13 +69,13 @@ public class PushSwitchStatementToFactoryDialog extends DialogWrapper {
     @Override
     protected void doOKAction() {
         super.doOKAction();
-        boolean performed = performAction(mySwitchStatement);
+        boolean performed = performAction();
         if (performed) {
             ApplicationManager.getApplication().invokeLater(this::performNextStep);
         }
     }
 
-    private boolean performAction(PsiElement mySwitchStatement) {
+    private boolean performAction() {
         for (PsiMethod method : factoryMethods) {
             pushSwitchStatementToFactory(method);
         }
@@ -90,7 +90,6 @@ public class PushSwitchStatementToFactoryDialog extends DialogWrapper {
         PsiElementFactory factory = JavaPsiFacade.getInstance(project).getElementFactory();
         PsiSwitchStatement switchStatement = getSwitchStatementCopy();
         PsiStatement[] statements = switchStatement.getBody().getStatements();
-
         PsiStatement originalReturnStatement = method.getBody().getStatements()[0];
 
         WriteCommandAction.runWriteCommandAction(method.getProject(), () -> {
@@ -106,12 +105,6 @@ public class PushSwitchStatementToFactoryDialog extends DialogWrapper {
                     PsiSwitchLabelStatement switchLabelStatement = (PsiSwitchLabelStatement) statement;
                     String subClassName = generateSubClassNameFromSwitchLabel(myContainingClass, switchLabelStatement);
                     PsiNewExpression newExpression = replaceNewExpressionClass(factory, currentNewExpression, subClassName);
-
-
-
-                    System.out.println("old new expression: " + currentNewExpression.getText());
-                    System.out.println("new new expression: " + newExpression.getText());
-
                     currentNewExpression.replace(newExpression);
                 } else {
                     if (isFirstStatement) {
@@ -122,7 +115,6 @@ public class PushSwitchStatementToFactoryDialog extends DialogWrapper {
                     }
                 }
             }
-
             PsiCodeBlock switchStatementCodeBlock = createCodeBlockFromStatement(switchStatement);
             method.getBody().replace(switchStatementCodeBlock);
         });

@@ -3,36 +3,11 @@ package ReplaceConditionalWithPolymorphismTests.example1;
 public class SpecialNumber {
 
     private int specialNumber = generateNum();
-    protected int i=0;
+    protected int i = 0;
 
     SpecialNumber(int specialNumber) {
         this.specialNumber = specialNumber;
     }
-
-    private SpecialNumber(String s) {
-        this.specialNumber = 0;
-    }
-
-    public static SpecialNumber createSpecialNumber(int specialNumber) {
-        return new SpecialNumber(specialNumber);
-    }
-
-    public static SpecialNumber createSpecialNumber(String s) {
-        return new SpecialNumber(s);
-    }
-
-//    public static SpecialNumber createSpecialNumber(int specialNumber) {
-//        switch (specialNumber) {
-//            case 1:
-//                return new SpecialNumber1(specialNumber);
-//            case 2:
-//                return new SpecialNumber2(specialNumber);
-//            case 3:
-//                return new SpecialNumber3(specialNumber);
-//            default:
-//                return new SpecialNumberDefault(specialNumber);
-//        }
-//    }
 
     public int getSpecialNumber() {
         switch(specialNumber)
@@ -114,14 +89,12 @@ public class SpecialNumber {
 
     public static void main(String[] args) {
         //conditional
-//        SpecialNumber specialNumber = createSpecialNumber(1);
-//        specialNumber.getSpecialNumber();
+        SpecialNumber specialNumber = new SpecialNumber(1);
+        specialNumber.getSpecialNumber();
 
         //polymorphism
-//        int num = 1;
-//        SpecialNumber absSpecialNumber;
-//        absSpecialNumber = instantiateTheRightThing(num);
-//        System.out.println(absSpecialNumber.getSpecialNumber());
+//      SpecialNumber specialNumber = createSpecialNumber(1);
+//      specialNumber.getSpecialNumber();
     }
 
 
