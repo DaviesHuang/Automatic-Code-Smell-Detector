@@ -14,6 +14,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
+import static DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider.showMakeSuperClassAbstractDialog;
 import static PsiUtils.PsiUtils.createCodeBlockFromStatement;
 
 public class PushSwitchStatementToFactoryDialog extends DialogWrapper {
@@ -83,7 +84,7 @@ public class PushSwitchStatementToFactoryDialog extends DialogWrapper {
     }
 
     private void performNextStep() {
-//        showReplaceConstructorsWithFactoryDialog(psiClass);
+        showMakeSuperClassAbstractDialog(myContainingClass, mySwitchStatement);
     }
 
     private void pushSwitchStatementToFactory(PsiMethod method) {

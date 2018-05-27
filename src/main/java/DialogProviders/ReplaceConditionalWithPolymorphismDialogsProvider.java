@@ -50,4 +50,10 @@ public class ReplaceConditionalWithPolymorphismDialogsProvider {
         dialog.show();
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
     }
+
+    public static boolean showMakeSuperClassAbstractDialog(PsiClass psiClass, PsiElement switchStatement) {
+        MakeSuperClassAbstractDialog dialog = new MakeSuperClassAbstractDialog(psiClass, switchStatement);
+        dialog.show();
+        return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
+    }
 }
