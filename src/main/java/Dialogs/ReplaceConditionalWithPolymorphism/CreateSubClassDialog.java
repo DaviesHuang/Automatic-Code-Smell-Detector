@@ -83,24 +83,23 @@ public class CreateSubClassDialog extends DialogWrapper {
                     currentBlock.add(statement);
                 }
             }
-
-            for (int i = 0; i < switchLabelStatements.size(); i++) {
-                PsiSwitchLabelStatement switchLabelStatement = switchLabelStatements.get(i);
-                List<PsiStatement> currentStatements = statementLists.get(i);
-                String subClassName = classPrefix + (switchLabelStatement.isDefaultCase() ?
-                        "Default" :
-                        switchLabelStatement.getCaseValue().getText());
-                PsiDirectory directory = psiClass.getContainingFile().getContainingDirectory();
-                ApplicationManager.getApplication().invokeLater(() -> {
-                    WriteCommandAction.runWriteCommandAction(project, () -> {
+            WriteCommandAction.runWriteCommandAction(project, () -> {
+                for (int i = 0; i < switchLabelStatements.size(); i++) {
+                    PsiSwitchLabelStatement switchLabelStatement = switchLabelStatements.get(i);
+                    List<PsiStatement> currentStatements = statementLists.get(i);
+                    String subClassName = classPrefix + (switchLabelStatement.isDefaultCase() ?
+                            "Default" :
+                            switchLabelStatement.getCaseValue().getText());
+                    PsiDirectory directory = psiClass.getContainingFile().getContainingDirectory();
+                    ApplicationManager.getApplication().invokeLater(() -> {
                         subClass = CreateSubclassAction.createSubclass(psiClass, directory, subClassName);
-                    });
-                    if (method != null) {
-                        addMethodToClass(method, subClass, currentStatements);
-                    }
+                        if (method != null) {
+                            addMethodToClass(method, subClass, currentStatements);
+                        }
 
-                });
-            }
+                    });
+                }
+            });
             return true;
         } else {
             System.out.println("It is not a switch statement");

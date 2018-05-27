@@ -28,4 +28,9 @@ public class ReplaceConditionalWithPolymorphismFix implements LocalQuickFix {
             ReplaceConditionalWithPolymorphismDialogsProvider.showExtractSwitchStatementDialog(psiClass, element);
         }
     }
+
+    @Override
+    public boolean startInWriteAction() {
+        return false;
+    }
 }
