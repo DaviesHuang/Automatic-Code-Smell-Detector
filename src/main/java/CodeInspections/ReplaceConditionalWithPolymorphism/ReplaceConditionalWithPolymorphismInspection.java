@@ -15,7 +15,7 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
 
     @NotNull
     public String getDisplayName() {
-        return "Replace conditional with polymorphism";
+        return "Use conditional instead of polymorphism";
     }
 
     @NotNull

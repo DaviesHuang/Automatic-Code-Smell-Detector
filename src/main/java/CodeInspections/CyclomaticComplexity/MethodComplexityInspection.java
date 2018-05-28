@@ -1,11 +1,12 @@
 package CodeInspections.CyclomaticComplexity;
 
-import CodeInspections.CyclomaticComplexity.MethodComplexityFix;
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemsHolder;
-import com.intellij.psi.*;
+import com.intellij.psi.JavaElementVisitor;
+import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.PsiMethod;
 import com.siyeh.ig.classmetrics.CyclomaticComplexityVisitor;
 import org.jetbrains.annotations.NotNull;
 

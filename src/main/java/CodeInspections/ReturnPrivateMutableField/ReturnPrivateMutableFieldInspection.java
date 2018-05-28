@@ -1,6 +1,5 @@
 package CodeInspections.ReturnPrivateMutableField;
 
-import CodeInspections.ReturnPrivateMutableField.ReturnPrivateMutableFieldFix;
 import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalQuickFix;
@@ -15,7 +14,7 @@ public class ReturnPrivateMutableFieldInspection extends BaseJavaLocalInspection
 
     @NotNull
     public String getDisplayName() {
-        return "Returning direct reference to private mutable field instead of reference to a defensive copy";
+        return "Returning direct reference to private mutable field";
     }
 
     @NotNull
