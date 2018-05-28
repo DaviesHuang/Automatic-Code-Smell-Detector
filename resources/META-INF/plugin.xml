@@ -1,40 +1,19 @@
 <idea-plugin>
-  <id>com.your.company.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>com.yhuang.code-smell-detector</id>
+  <name>Code Smell Detector</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
-
-  <description><![CDATA[
-      Enter short description for your plugin here.<br>
-      <em>most HTML tags may be used</em>
-    ]]></description>
-
-  <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
-    ]]>
-  </change-notes>
+  <vendor email="yh6714@ic.ac.uk">Yuhang Huang</vendor>
+  <description>This code smell detector features code inspections and step by step refactoring suggestions for code smells includes: excessive cyclomatic complexity, using conditional instead of polymorphism and return private mutable field</description>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
   <idea-version since-build="145.0"/>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
-  <!-- uncomment to enable plugin in all products
-  <depends>com.intellij.modules.lang</depends>
-  -->
+  <depends>com.intellij.modules.java</depends>
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
     <inspectionToolProvider implementation="CodeInspections.CodeInspectionProvider"/>
   </extensions>
-
-  <!--<actions>-->
-    <!--&lt;!&ndash; Add your actions here &ndash;&gt;-->
-    <!--<group id="MyPlugin.CodeInspection" text="_Code Inspection" description="Code Inspection">-->
-      <!--<add-to-group group-id="MainMenu" anchor="last"  />-->
-      <!--<action id="Myplugin.Textboxes" class="Actions.TextBoxes" text="Text _Boxes" description="A test menu item" />-->
-    <!--</group>-->
-  <!--</actions>-->
 
 </idea-plugin>
