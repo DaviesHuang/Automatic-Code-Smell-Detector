@@ -25,7 +25,7 @@ public class ExtractSwitchStatementDialog extends DialogWrapper {
         super(element.getProject(), canBeParent);
         this.element = element;
         this.psiClass = psiClass;
-        setTitle("Extract Switch Statement.");
+        setTitle("Extract Switch Statement");
         init();
     }
 

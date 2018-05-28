@@ -28,7 +28,7 @@ public class EnsureExtractedMethodVisibilityDialog extends DialogWrapper {
         super(element.getProject(), canBeParent);
         this.element = element;
         this.psiClass = psiClass;
-        setTitle("Ensure the New Method Is Atleast Package Visible");
+        setTitle("Ensure Method Visibility");
         init();
     }
 

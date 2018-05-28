@@ -1,15 +1,11 @@
 package Dialogs.ReplaceConditionalWithPolymorphism;
 
-import DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider;
-import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
-import java.awt.event.*;
 
 public class StartRefactoringDialog extends DialogWrapper {
 
@@ -17,7 +13,7 @@ public class StartRefactoringDialog extends DialogWrapper {
 
     public StartRefactoringDialog(@Nullable Project project, boolean canBeParent) {
         super(project, canBeParent);
-        setTitle("Start Method Refactoring to Replace Conditional with Polymorphism.");
+        setTitle("Replace Conditional with Polymorphism");
         init();
     }
 

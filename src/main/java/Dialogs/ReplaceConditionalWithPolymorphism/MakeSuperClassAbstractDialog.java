@@ -43,7 +43,7 @@ public class MakeSuperClassAbstractDialog extends DialogWrapper {
 
         //second line
         gbc.gridy++;
-        panel.add(new JLabel("The method containing switch statement abstract"), gbc);
+        panel.add(new JLabel("The method containing switch statement is made abstract"), gbc);
 
         //third line
         gbc.gridy++;

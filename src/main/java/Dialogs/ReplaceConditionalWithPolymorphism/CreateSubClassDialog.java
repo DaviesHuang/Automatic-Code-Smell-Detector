@@ -1,9 +1,9 @@
 package Dialogs.ReplaceConditionalWithPolymorphism;
 
+import Actions.CreateConstructorsMatchingSuperAction;
+import Actions.CreateSubclassFromSuperAction;
 import Visitors.LocateSwitchStatementVisitor;
 import Visitors.PrivateFieldVisitor;
-import com.intellij.codeInsight.daemon.impl.quickfix.CreateConstructorMatchingSuperFix;
-import com.intellij.codeInsight.intention.impl.CreateSubclassAction;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Editor;
@@ -92,11 +92,10 @@ public class CreateSubClassDialog extends DialogWrapper {
                             switchLabelStatement.getCaseValue().getText());
                     PsiDirectory directory = psiClass.getContainingFile().getContainingDirectory();
                     ApplicationManager.getApplication().invokeLater(() -> {
-                        subClass = CreateSubclassAction.createSubclass(psiClass, directory, subClassName);
+                        subClass = CreateSubclassFromSuperAction.createSubclass(psiClass, directory, subClassName, false);
                         if (method != null) {
                             addMethodToClass(method, subClass, currentStatements);
                         }
-
                     });
                 }
             });
@@ -147,8 +146,8 @@ public class CreateSubClassDialog extends DialogWrapper {
     }
 
     private void addConstructorMethodFromSuper(PsiClass subClass) {
-        CreateConstructorMatchingSuperFix createConstructorMatchingSuperFix = new CreateConstructorMatchingSuperFix(subClass);
+        CreateConstructorsMatchingSuperAction createConstructorsMatchingSuperAction = new CreateConstructorsMatchingSuperAction(subClass);
         Editor editor = FileEditorManager.getInstance(project).getSelectedTextEditor();
-        createConstructorMatchingSuperFix.invoke(subClass.getProject(), editor, subClass.getContainingFile());
+        createConstructorsMatchingSuperAction.invoke(subClass.getProject(), editor);
     }
 }
