@@ -8,6 +8,8 @@ import com.intellij.psi.*;
 import com.siyeh.ig.psiutils.SwitchUtils;
 import org.jetbrains.annotations.NotNull;
 
+import static Constants.Constants.CODE_SMELL;
+
 public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalInspectionTool {
 
     private final LocalQuickFix quickFix = new ReplaceConditionalWithPolymorphismFix();
@@ -20,7 +22,7 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
 
     @NotNull
     public String getGroupDisplayName() {
-        return GroupNames.BUGS_GROUP_NAME;
+        return CODE_SMELL;
     }
 
     @Override

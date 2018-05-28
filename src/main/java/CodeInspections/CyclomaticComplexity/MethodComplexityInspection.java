@@ -10,6 +10,8 @@ import com.intellij.psi.PsiMethod;
 import com.siyeh.ig.classmetrics.CyclomaticComplexityVisitor;
 import org.jetbrains.annotations.NotNull;
 
+import static Constants.Constants.CODE_SMELL;
+
 public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
 
     private final LocalQuickFix quickFix = new MethodComplexityFix();
@@ -22,7 +24,7 @@ public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
 
     @NotNull
     public String getGroupDisplayName() {
-        return GroupNames.BUGS_GROUP_NAME;
+        return CODE_SMELL;
     }
 
     @Override

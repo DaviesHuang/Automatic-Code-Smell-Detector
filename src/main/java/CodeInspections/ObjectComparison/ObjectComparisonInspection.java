@@ -9,6 +9,8 @@ import com.intellij.psi.*;
 import com.intellij.psi.tree.IElementType;
 import org.jetbrains.annotations.NotNull;
 
+import static Constants.Constants.CODE_SMELL;
+
 public class ObjectComparisonInspection extends BaseJavaLocalInspectionTool {
 
     private final LocalQuickFix quickFix = new ObjectComparisonFix();
@@ -20,7 +22,7 @@ public class ObjectComparisonInspection extends BaseJavaLocalInspectionTool {
 
     @NotNull
     public String getGroupDisplayName() {
-        return GroupNames.BUGS_GROUP_NAME;
+        return CODE_SMELL;
     }
 
     private static boolean isNullLiteral(PsiExpression expr) {

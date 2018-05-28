@@ -8,6 +8,8 @@ import com.intellij.psi.*;
 import com.siyeh.ig.psiutils.ClassUtils;
 import org.jetbrains.annotations.NotNull;
 
+import static Constants.Constants.CODE_SMELL;
+
 public class ReturnPrivateMutableFieldInspection extends BaseJavaLocalInspectionTool {
 
     private final LocalQuickFix quickFix = new ReturnPrivateMutableFieldFix();
@@ -19,7 +21,7 @@ public class ReturnPrivateMutableFieldInspection extends BaseJavaLocalInspection
 
     @NotNull
     public String getGroupDisplayName() {
-        return GroupNames.BUGS_GROUP_NAME;
+        return CODE_SMELL;
     }
 
     @Override
