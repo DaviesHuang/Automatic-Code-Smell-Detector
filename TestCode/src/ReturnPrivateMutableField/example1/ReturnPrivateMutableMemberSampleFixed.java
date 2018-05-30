@@ -1,21 +1,24 @@
+package ReturnPrivateMutableField.example1;
+
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
 
-public class ReturnPrivateMutableMemberSample {
+public class ReturnPrivateMutableMemberSampleFixed {
 
     private Date d;
     private String s;
     private ArrayList<Date> list;
-    HashMap h;
 
-    public ReturnPrivateMutableMemberSample() {
+    public ReturnPrivateMutableMemberSampleFixed() {
         d = new Date();
     }
 
     public Date getDate() {
-        return d;
+        return (Date) ggggg().clone();
+    }
+
+    private Date ggggg() {
+        return (Date) d.clone();
     }
 
     public String getString() {
@@ -27,8 +30,9 @@ public class ReturnPrivateMutableMemberSample {
         return d2;
     }
 
-    public ArrayList<Date> getList() {
+    private ArrayList<Date> getList() {
         return (ArrayList<Date>) list.clone();
     }
-
 }
+
+

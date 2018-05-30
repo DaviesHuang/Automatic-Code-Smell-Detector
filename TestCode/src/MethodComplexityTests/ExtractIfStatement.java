@@ -15,9 +15,9 @@ public class ExtractIfStatement {
                 "aramsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT)";
 
         String forceUnevenDistributionString = "HttpRequestHelper.getValueFromParamMap(requestParameters, Const.P" +
-                "aramsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT)";;
+                "aramsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT)";
         String distributePointsOption = "HttpRequestHelper.getValueFromParamMap(requestParameters, Const.P" +
-                "aramsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT)";;
+                "aramsNames.FEEDBACK_QUESTION_CONSTSUMPOINTSFOREACHRECIPIENT)";
 
         boolean distributeToRecipients = "true".equals(distributeToRecipientsString);
         boolean pointsPerOption = "true".equals(pointsPerOptionString);

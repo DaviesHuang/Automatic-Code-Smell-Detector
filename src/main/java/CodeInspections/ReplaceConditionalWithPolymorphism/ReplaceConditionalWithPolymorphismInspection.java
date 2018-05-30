@@ -1,6 +1,5 @@
 package CodeInspections.ReplaceConditionalWithPolymorphism;
 
-import com.intellij.codeInsight.daemon.GroupNames;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemsHolder;
@@ -17,7 +16,7 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
 
     @NotNull
     public String getDisplayName() {
-        return "Use conditional instead of polymorphism";
+        return "Replace conditional with polymorphism";
     }
 
     @NotNull
