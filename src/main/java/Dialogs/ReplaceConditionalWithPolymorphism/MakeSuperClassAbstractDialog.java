@@ -75,7 +75,7 @@ public class MakeSuperClassAbstractDialog extends DialogWrapper {
 
     private boolean performAction() {
         PsiMethod method = PsiTreeUtil.getParentOfType(mySwitchStatement, PsiMethod.class);
-        WriteCommandAction.runWriteCommandAction(method.getProject(), () -> {
+        WriteCommandAction.runWriteCommandAction(project, () -> {
             method.getModifierList().setModifierProperty(PsiModifier.ABSTRACT, true);
             method.getBody().delete();
             myClass.getModifierList().setModifierProperty(PsiModifier.ABSTRACT, true);
