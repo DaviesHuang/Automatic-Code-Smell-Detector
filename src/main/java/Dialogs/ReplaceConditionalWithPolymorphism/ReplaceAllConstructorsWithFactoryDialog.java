@@ -179,7 +179,7 @@ public class ReplaceAllConstructorsWithFactoryDialog extends RefactoringDialog {
 
     @Override
     protected void doAction() {
-        VirtualFile file = mySwitchStatement.getContainingFile().getVirtualFile();
+        VirtualFile file = myContainingClass.getContainingFile().getVirtualFile();
         FileEditorManager.getInstance(project).openFile(file, true, true);
 
         final PsiManager manager = PsiManager.getInstance(project);
