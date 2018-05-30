@@ -1,12 +1,10 @@
 package Dialogs.ReplaceConditionalWithPolymorphism;
 
 import DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider;
+import Visitors.LocateSwitchStatementVisitor;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiMethod;
-import com.intellij.psi.PsiStatement;
+import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.refactoring.extractMethod.ExtractMethodHandler;
 import com.intellij.refactoring.extractMethod.ExtractMethodProcessor;
@@ -18,10 +16,10 @@ import javax.swing.*;
 public class ExtractSwitchStatementDialog extends DialogWrapper {
 
     private JPanel myMainPanel;
-    private PsiElement element;
+    private PsiSwitchStatement element;
     private PsiClass psiClass;
 
-    public ExtractSwitchStatementDialog(PsiClass psiClass, @Nullable PsiElement element, boolean canBeParent) {
+    public ExtractSwitchStatementDialog(PsiClass psiClass, @Nullable PsiSwitchStatement element, boolean canBeParent) {
         super(element.getProject(), canBeParent);
         this.element = element;
         this.psiClass = psiClass;
@@ -73,6 +71,9 @@ public class ExtractSwitchStatementDialog extends DialogWrapper {
     }
 
     private void performNextStep() {
-        ReplaceConditionalWithPolymorphismDialogsProvider.showEnsureExtractedMethodVisibilityDialog(psiClass, element);
+        LocateSwitchStatementVisitor visitor = new LocateSwitchStatementVisitor(element.getText());
+        psiClass.accept(visitor);
+        PsiSwitchStatement switchStatement = visitor.getSwitchStatement();
+        ReplaceConditionalWithPolymorphismDialogsProvider.showEnsureExtractedMethodVisibilityDialog(psiClass, switchStatement);
     }
 }

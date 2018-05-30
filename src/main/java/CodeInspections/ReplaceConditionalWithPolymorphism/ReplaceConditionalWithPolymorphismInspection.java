@@ -1,5 +1,6 @@
 package CodeInspections.ReplaceConditionalWithPolymorphism;
 
+import Evaluation.ReplaceConditionalWithPolymorphism.InspectionTimeEvaluator;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemsHolder;
@@ -13,6 +14,10 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
 
     private final LocalQuickFix quickFix = new ReplaceConditionalWithPolymorphismFix();
     private final int branchThreshold = 3;
+
+    public ReplaceConditionalWithPolymorphismInspection() {
+        super();
+    }
 
     @NotNull
     public String getDisplayName() {
@@ -29,9 +34,15 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
         return true;
     }
 
+    private void registerError(ProblemsHolder holder, PsiElement element) {
+        holder.registerProblem(element, getDisplayName(), quickFix);
+        InspectionTimeEvaluator.end();
+    }
+
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
+        InspectionTimeEvaluator.start();
         return new JavaElementVisitor() {
             @Override
             public void visitSwitchStatement(PsiSwitchStatement statement) {
@@ -43,7 +54,7 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
 
                 PsiExpression expression = statement.getExpression();
                 if (isField(expression) || isMethodCall(expression)) {
-                    holder.registerProblem(statement, getDisplayName(), quickFix);
+                    registerError(holder, statement);
                 }
             }
         };

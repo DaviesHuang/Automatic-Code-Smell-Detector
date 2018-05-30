@@ -6,6 +6,7 @@ import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.PsiClass;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiMethod;
+import com.intellij.psi.PsiSwitchStatement;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class ReplaceConditionalWithPolymorphismDialogsProvider {
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
     }
 
-    public static boolean showExtractSwitchStatementDialog(PsiClass psiClass, PsiElement element) {
+    public static boolean showExtractSwitchStatementDialog(PsiClass psiClass, PsiSwitchStatement element) {
         ExtractSwitchStatementDialog dialog = new ExtractSwitchStatementDialog(psiClass, element, true);
         dialog.show();
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
