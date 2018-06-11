@@ -10,7 +10,8 @@ import org.jetbrains.annotations.NotNull;
 
 import static Constants.Constants.CODE_SMELL;
 
-public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalInspectionTool {
+public class ReplaceConditionalWithPolymorphismInspection
+        extends BaseJavaLocalInspectionTool {
 
     private final LocalQuickFix quickFix = new ReplaceConditionalWithPolymorphismFix();
     private final int branchThreshold = 3;
@@ -19,11 +20,13 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
         super();
     }
 
+    @Override
     @NotNull
     public String getDisplayName() {
         return "Replace conditional with polymorphism";
     }
 
+    @Override
     @NotNull
     public String getGroupDisplayName() {
         return CODE_SMELL;
@@ -41,13 +44,13 @@ public class ReplaceConditionalWithPolymorphismInspection extends BaseJavaLocalI
 
     @NotNull
     @Override
-    public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder, boolean isOnTheFly) {
+    public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder,
+                                          boolean isOnTheFly) {
         InspectionTimeEvaluator.start();
         return new JavaElementVisitor() {
             @Override
             public void visitSwitchStatement(PsiSwitchStatement statement) {
                 super.visitStatement(statement);
-
                 if (withinBranchCountLimit(statement)) {
                     return;
                 }
