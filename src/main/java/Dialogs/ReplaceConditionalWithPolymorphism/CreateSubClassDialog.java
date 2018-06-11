@@ -2,8 +2,11 @@ package Dialogs.ReplaceConditionalWithPolymorphism;
 
 import Actions.CreateConstructorsMatchingSuperAction;
 import Actions.CreateSubclassFromSuperAction;
+import Utils.NameUtils;
 import Visitors.LocateSwitchStatementVisitor;
 import Visitors.PrivateFieldVisitor;
+import com.google.common.base.CaseFormat;
+import com.google.common.base.CharMatcher;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.openapi.editor.Editor;
@@ -12,6 +15,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
+import io.netty.util.internal.StringUtil;
+import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -20,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider.showReplaceConstructorsWithFactoryDialog;
+import static Utils.NameUtils.generateSubclassName;
 
 public class CreateSubClassDialog extends DialogWrapper {
 
@@ -67,7 +73,7 @@ public class CreateSubClassDialog extends DialogWrapper {
 
     private boolean performAction(PsiElement element) {
         if (element instanceof PsiSwitchStatement) {
-            String classPrefix = psiClass.getName();
+            String superClassName = psiClass.getName();
             PsiSwitchStatement switchStatement = (PsiSwitchStatement) element;
             PsiMethod method = getMethod();
             PsiStatement[] statements = switchStatement.getBody().getStatements();
@@ -87,12 +93,13 @@ public class CreateSubClassDialog extends DialogWrapper {
                 for (int i = 0; i < switchLabelStatements.size(); i++) {
                     PsiSwitchLabelStatement switchLabelStatement = switchLabelStatements.get(i);
                     List<PsiStatement> currentStatements = statementLists.get(i);
-                    String subClassName = classPrefix + (switchLabelStatement.isDefaultCase() ?
+                    String caseName = switchLabelStatement.isDefaultCase() ?
                             "Default" :
-                            switchLabelStatement.getCaseValue().getText());
+                            switchLabelStatement.getCaseValue().getText();
+                    String subclassName = NameUtils.generateSubclassName(superClassName, caseName);
                     PsiDirectory directory = psiClass.getContainingFile().getContainingDirectory();
                     ApplicationManager.getApplication().invokeLater(() -> {
-                        subClass = CreateSubclassFromSuperAction.createSubclass(psiClass, directory, subClassName, false);
+                        subClass = CreateSubclassFromSuperAction.createSubclass(psiClass, directory, subclassName, false);
                         if (method != null) {
                             addMethodToClass(method, subClass, currentStatements);
                         }
@@ -105,6 +112,8 @@ public class CreateSubClassDialog extends DialogWrapper {
             return false;
         }
     }
+
+
 
     private void performNextStep() {
         showReplaceConstructorsWithFactoryDialog(psiClass, element);

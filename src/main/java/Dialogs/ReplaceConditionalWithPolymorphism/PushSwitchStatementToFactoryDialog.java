@@ -1,5 +1,6 @@
 package Dialogs.ReplaceConditionalWithPolymorphism;
 
+import Utils.NameUtils;
 import Visitors.LocateSwitchStatementVisitor;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.command.WriteCommandAction;
@@ -128,7 +129,9 @@ public class PushSwitchStatementToFactoryDialog extends DialogWrapper {
     }
 
     private String generateSubClassNameFromSwitchLabel(PsiClass superClass, PsiSwitchLabelStatement label) {
-        return superClass.getName() + (label.isDefaultCase() ? "Default" : label.getCaseValue().getText());
+        String superClassName = superClass.getName();
+        String caseName = label.isDefaultCase() ? "Default" : label.getCaseValue().getText();
+        return NameUtils.generateSubclassName(superClassName, caseName);
     }
 
     private PsiNewExpression replaceNewExpressionClass(PsiElementFactory factory, PsiNewExpression expression, String newClassName) {
