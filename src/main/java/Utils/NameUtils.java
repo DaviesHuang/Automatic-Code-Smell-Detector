@@ -7,6 +7,10 @@ import org.apache.commons.lang.StringUtils;
 public class NameUtils {
 
     public static String generateSubclassName(String superClassName, String caseName) {
+        if (caseName.equals("Default")) {
+            return caseName + superClassName;
+        }
+
         if (StringUtils.isNumeric(caseName)) {
             return superClassName + caseName;
         }
@@ -18,6 +22,6 @@ public class NameUtils {
             convertedCaseName = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, convertedCaseName.toLowerCase());
         }
 
-        return convertedCaseName + superClassName;
+        return convertedCaseName;
     }
 }

@@ -4,7 +4,7 @@ public class Bird {
 
     enum BirdType {
         PENGUIN,
-        EUROPEAN,
+        Sparrow,
         PARROT
     }
 
@@ -23,7 +23,7 @@ public class Bird {
         switch (type) {
             case PENGUIN:
                 return 1;
-            case EUROPEAN:
+            case Sparrow:
                 return 2 * baseSpeed;
             case PARROT:
                 int totalSpeed = baseSpeed > 10 ? baseSpeed : 10;
