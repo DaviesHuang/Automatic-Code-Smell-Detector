@@ -2,6 +2,7 @@ package CodeInspections.ReplaceConditionalWithPolymorphism;
 
 import Evaluation.ReplaceConditionalWithPolymorphism.InspectionTimeEvaluator;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
+import com.intellij.codeInspection.LocalInspectionToolSession;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.*;
@@ -15,10 +16,23 @@ public class ReplaceConditionalWithPolymorphismInspection
 
     private final LocalQuickFix quickFix = new ReplaceConditionalWithPolymorphismFix();
     private final int branchThreshold = 3;
+    private InspectionTimeEvaluator inspectionTimeEvaluator =
+            new InspectionTimeEvaluator("Replace conditional with polymorphism");
 
     public ReplaceConditionalWithPolymorphismInspection() {
         super();
     }
+
+    @Override
+    public void inspectionStarted(@NotNull LocalInspectionToolSession session, boolean isOnTheFly) {
+        inspectionTimeEvaluator.start();
+    }
+
+    @Override
+    public void inspectionFinished(@NotNull LocalInspectionToolSession session, @NotNull ProblemsHolder problemsHolder) {
+        inspectionTimeEvaluator.end();
+    }
+
 
     @Override
     @NotNull
@@ -39,14 +53,12 @@ public class ReplaceConditionalWithPolymorphismInspection
 
     private void registerError(ProblemsHolder holder, PsiElement element) {
         holder.registerProblem(element, getDisplayName(), quickFix);
-        InspectionTimeEvaluator.end();
     }
 
     @NotNull
     @Override
     public PsiElementVisitor buildVisitor(@NotNull final ProblemsHolder holder,
                                           boolean isOnTheFly) {
-        InspectionTimeEvaluator.start();
         return new JavaElementVisitor() {
             @Override
             public void visitSwitchStatement(PsiSwitchStatement statement) {

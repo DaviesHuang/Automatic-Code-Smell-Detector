@@ -1,6 +1,8 @@
 package CodeInspections.CyclomaticComplexity;
 
+import Evaluation.ReplaceConditionalWithPolymorphism.InspectionTimeEvaluator;
 import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
+import com.intellij.codeInspection.LocalInspectionToolSession;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemsHolder;
 import com.intellij.psi.JavaElementVisitor;
@@ -15,6 +17,18 @@ public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
 
     private final LocalQuickFix quickFix = new MethodComplexityFix();
     private final int threshold = 5;
+    private InspectionTimeEvaluator inspectionTimeEvaluator =
+            new InspectionTimeEvaluator("Excessive cyclomatic complexity");
+
+    @Override
+    public void inspectionStarted(@NotNull LocalInspectionToolSession session, boolean isOnTheFly) {
+        inspectionTimeEvaluator.start();
+    }
+
+    @Override
+    public void inspectionFinished(@NotNull LocalInspectionToolSession session, @NotNull ProblemsHolder problemsHolder) {
+        inspectionTimeEvaluator.end();
+    }
 
     @NotNull
     public String getDisplayName() {

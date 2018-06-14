@@ -5,14 +5,19 @@ import java.util.Date;
 public class InspectionTimeEvaluator {
 
     private static Date start;
+    private String inspectionName;
 
-    public static void start() {
+    public InspectionTimeEvaluator(String inspectionName) {
+        this.inspectionName = inspectionName;
+    }
+
+    public void start() {
         start = new Date();
     }
 
-    public static void end() {
+    public void end() {
         Date end = new Date();
         long diff = end.getTime() - start.getTime();
-        System.out.println("Replace conditional with polymorphism inspection took: " + diff + " mills");
+        System.out.println(this.inspectionName + " inspection took: " + diff + " mills");
     }
 }

@@ -40,7 +40,7 @@ public class CreateSubClassDialog extends DialogWrapper {
         this.project = element.getProject();
         this.element = element;
         this.psiClass = psiClass;
-        setTitle("Create Abstract Class");
+        setTitle("Create  Subclasses");
         init();
     }
 
