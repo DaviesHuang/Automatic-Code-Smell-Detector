@@ -5,6 +5,7 @@ import com.intellij.codeInspection.BaseJavaLocalInspectionTool;
 import com.intellij.codeInspection.LocalInspectionToolSession;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemsHolder;
+import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.psi.JavaElementVisitor;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiMethod;
@@ -12,11 +13,15 @@ import com.siyeh.ig.classmetrics.CyclomaticComplexityVisitor;
 import org.jetbrains.annotations.NotNull;
 
 import static Constants.Constants.CODE_SMELL;
+import static Constants.Constants.COMPLEXITY_THRESHOLD;
+import static Constants.Constants.DEFAULT_THRESHOLD;
 
 public class MethodComplexityInspection extends BaseJavaLocalInspectionTool {
 
     private final LocalQuickFix quickFix = new MethodComplexityFix();
-    private final int threshold = 5;
+    private PropertiesComponent propertiesComponent = PropertiesComponent.getInstance();
+//    private final int threshold = propertiesComponent.getInt(COMPLEXITY_THRESHOLD, DEFAULT_THRESHOLD);
+    private final int threshold = DEFAULT_THRESHOLD;
     private InspectionTimeEvaluator inspectionTimeEvaluator =
             new InspectionTimeEvaluator("Excessive cyclomatic complexity");
 
