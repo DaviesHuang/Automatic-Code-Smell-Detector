@@ -7,29 +7,32 @@ public class Bird {
     }
 
     private BirdType type;
-    private Speed baseSpeed;
+    private int baseSpeed;
+    private final int maxSpeed = 100;
 
-    Bird(BirdType type, Speed baseSpeed) {
+    Bird(BirdType type, int baseSpeed) {
         this.type = type;
         this.baseSpeed = baseSpeed;
     }
 
-    public Speed getSpeed() {
-        int speed = baseSpeed.getSpeed();
+    public int getSpeed() {
+        if (baseSpeed < 0 || baseSpeed > maxSpeed) {
+            return 0;
+        }
         switch (type) {
             case PENGUIN:
-                return new Speed(1);
+                return 1;
             case SPARROW:
-                return new Speed(2 * speed);
+                return 2 * baseSpeed;
             case PARROT:
-                return new Speed(speed > 10 ? speed : 10);
+                return baseSpeed > 10 ? baseSpeed : 10;
             default:
-                return baseSpeed;
+                return 0;
         }
     }
 
     public static void main(String[] args) {
-        Bird aBird = new Bird(BirdType.PENGUIN, new Speed(1));
+        Bird aBird = new Bird(BirdType.PENGUIN, 1);
         System.out.println(aBird.getSpeed());
     }
 
