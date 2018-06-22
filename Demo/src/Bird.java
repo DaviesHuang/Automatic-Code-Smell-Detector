@@ -32,7 +32,7 @@ public class Bird {
     }
 
     public static void main(String[] args) {
-        Bird aBird = new Bird(BirdType.PENGUIN, 1);
+        Bird aBird = new Bird(BirdType.SPARROW, 5);
         System.out.println(aBird.getSpeed());
     }
 
