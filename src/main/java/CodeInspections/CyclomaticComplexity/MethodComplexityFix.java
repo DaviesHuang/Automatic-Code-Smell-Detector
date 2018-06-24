@@ -4,6 +4,7 @@ import DialogProviders.CyclomaticComplexityDialogsProvider;
 import Visitors.PsiElementExtractVisitor;
 import com.intellij.codeInspection.LocalQuickFix;
 import com.intellij.codeInspection.ProblemDescriptor;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
@@ -34,7 +35,9 @@ public class MethodComplexityFix implements LocalQuickFix {
             boolean refactored = refactor(element);
             if (refactored) {
                 final int newComplexity = getComplexity(element);
-                CyclomaticComplexityDialogsProvider.showComplexityComparisonDialog(project, originalComplexity, newComplexity);
+                ApplicationManager.getApplication().invokeLater(() -> {
+                    CyclomaticComplexityDialogsProvider.showComplexityComparisonDialog(project, originalComplexity, newComplexity);
+                });
             }
         }
     }

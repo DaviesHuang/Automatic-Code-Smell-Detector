@@ -11,6 +11,7 @@ import com.intellij.psi.PsiElement;
 public class CyclomaticComplexityDialogsProvider {
 
     public static boolean showStartDialog(Project project) {
+        //disable for demo
         if (PropertiesComponent.getInstance().getBoolean(StartRefactoringDialog.DISMISSED)) {
             return true;
         }

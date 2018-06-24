@@ -1,6 +1,7 @@
 package Visitors;
 
 import DialogProviders.CyclomaticComplexityDialogsProvider;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.psi.*;
 import com.intellij.refactoring.extractMethod.ExtractMethodHandler;
 import com.intellij.refactoring.extractMethod.ExtractMethodProcessor;
