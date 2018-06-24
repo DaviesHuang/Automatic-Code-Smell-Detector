@@ -9,8 +9,8 @@ import javax.swing.*;
 
 public interface ChainedDialog {
 
-    public boolean performAction(PsiElement element);
+    boolean performAction(PsiElement element);
 
-    public void performNextStep();
+    void performNextStep();
 
 }

@@ -1,21 +1,10 @@
 package Dialogs.CyclomaticComplexity;
 
-import Dialogs.ReplaceConditionalWithPolymorphism.ReplaceAllConstructorsWithFactoryDialog;
 import com.intellij.ide.util.PropertiesComponent;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiMethod;
-import com.intellij.psi.PsiModifier;
-import com.intellij.refactoring.RefactoringBundle;
-import com.intellij.refactoring.replaceConstructorWithFactory.ReplaceConstructorWithFactoryHandler;
-import com.intellij.refactoring.ui.NameSuggestionsField;
-import com.intellij.refactoring.ui.RefactoringDialog;
-import com.intellij.ui.JavaReferenceEditorUtil;
 import com.intellij.util.ui.JBUI;
 import org.apache.commons.lang.StringUtils;
-import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,14 +12,11 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.*;
-import java.beans.PropertyChangeListener;
-import java.util.Arrays;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import static Constants.Constants.COMPLEXITY_THRESHOLD;
 import static Constants.Constants.DEFAULT_THRESHOLD;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
-import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 public class StartRefactoringDialog extends DialogWrapper {
 

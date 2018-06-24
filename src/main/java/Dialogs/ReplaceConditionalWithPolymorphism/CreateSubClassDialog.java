@@ -2,6 +2,7 @@ package Dialogs.ReplaceConditionalWithPolymorphism;
 
 import Actions.CreateConstructorsMatchingSuperAction;
 import Actions.CreateSubclassFromSuperAction;
+import Dialogs.ChainedDialog;
 import Utils.NameUtils;
 import Visitors.LocateSwitchStatementVisitor;
 import Visitors.PrivateFieldVisitor;
@@ -27,7 +28,7 @@ import java.util.List;
 import static DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider.showReplaceConstructorsWithFactoryDialog;
 import static Utils.NameUtils.generateSubclassName;
 
-public class CreateSubClassDialog extends DialogWrapper {
+public class CreateSubClassDialog extends DialogWrapper implements ChainedDialog {
 
     private JPanel myMainPanel;
     private Project project;
@@ -71,7 +72,7 @@ public class CreateSubClassDialog extends DialogWrapper {
         }
     }
 
-    private boolean performAction(PsiElement element) {
+    public boolean performAction(PsiElement element) {
         if (element instanceof PsiSwitchStatement) {
             String superClassName = psiClass.getName();
             PsiSwitchStatement switchStatement = (PsiSwitchStatement) element;
@@ -115,7 +116,7 @@ public class CreateSubClassDialog extends DialogWrapper {
 
 
 
-    private void performNextStep() {
+    public void performNextStep() {
         showReplaceConstructorsWithFactoryDialog(psiClass, element);
     }
 

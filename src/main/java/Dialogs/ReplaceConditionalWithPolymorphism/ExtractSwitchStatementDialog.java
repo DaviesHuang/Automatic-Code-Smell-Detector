@@ -1,6 +1,7 @@
 package Dialogs.ReplaceConditionalWithPolymorphism;
 
 import DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider;
+import Dialogs.ChainedDialog;
 import Visitors.LocateSwitchStatementVisitor;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.ui.DialogWrapper;
@@ -13,7 +14,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 
-public class ExtractSwitchStatementDialog extends DialogWrapper {
+public class ExtractSwitchStatementDialog extends DialogWrapper implements ChainedDialog {
 
     private JPanel myMainPanel;
     private PsiSwitchStatement element;
@@ -54,7 +55,7 @@ public class ExtractSwitchStatementDialog extends DialogWrapper {
         }
     }
 
-    private boolean performAction(PsiElement element) {
+    public boolean performAction(PsiElement element) {
         PsiMethod method = PsiTreeUtil.getParentOfType(element, PsiMethod.class);
         if (method.getBody().getStatements().length > 1) {
             ExtractMethodProcessor processor = ExtractMethodHandler.getProcessor(
@@ -70,7 +71,7 @@ public class ExtractSwitchStatementDialog extends DialogWrapper {
         }
     }
 
-    private void performNextStep() {
+    public void performNextStep() {
         LocateSwitchStatementVisitor visitor = new LocateSwitchStatementVisitor(element.getText());
         psiClass.accept(visitor);
         PsiSwitchStatement switchStatement = visitor.getSwitchStatement();

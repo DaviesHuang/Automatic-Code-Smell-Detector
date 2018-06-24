@@ -1,6 +1,7 @@
 package Dialogs.ReplaceConditionalWithPolymorphism;
 
 import DialogProviders.ReplaceConditionalWithPolymorphismDialogsProvider;
+import Dialogs.ChainedDialog;
 import PsiUtils.PsiUtils;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.command.WriteCommandAction;
@@ -18,7 +19,7 @@ import java.lang.reflect.Modifier;
 
 import static PsiUtils.PsiUtils.setAccessToProtectedIfPrivate;
 
-public class EnsureExtractedMethodVisibilityDialog extends DialogWrapper {
+public class EnsureExtractedMethodVisibilityDialog extends DialogWrapper implements ChainedDialog {
 
     private JPanel myMainPanel;
     private PsiElement element;
@@ -59,13 +60,13 @@ public class EnsureExtractedMethodVisibilityDialog extends DialogWrapper {
         }
     }
 
-    private boolean performAction(PsiElement element) {
+    public boolean performAction(PsiElement element) {
         PsiMethod method = PsiUtils.getMethodFromClass(psiClass, element.getText());
         setAccessToProtectedIfPrivate(method);
         return true;
     }
 
-    private void performNextStep() {
+    public void performNextStep() {
         ReplaceConditionalWithPolymorphismDialogsProvider.showCreateSubClassDialog(psiClass, element);
     }
 }
