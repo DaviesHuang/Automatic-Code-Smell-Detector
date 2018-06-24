@@ -8,6 +8,7 @@ public class Bird {
 
     private BirdType type;
     private int baseSpeed;
+    private final int maxSpeed = 100;
 
     Bird(BirdType type, int baseSpeed) {
         this.type = type;
@@ -15,6 +16,9 @@ public class Bird {
     }
 
     public int getSpeed() {
+        if (baseSpeed < 0 || baseSpeed > maxSpeed) {
+            return 0;
+        }
         switch (type) {
             case PENGUIN:
                 return 1;
