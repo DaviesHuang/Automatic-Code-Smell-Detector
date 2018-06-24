@@ -25,13 +25,6 @@ public class SpecialNumberOriginal {
         //conditional
         SpecialNumberOriginal specialNumber = new SpecialNumberOriginal();
         System.out.println(specialNumber.getSpecialNumber());
-
-        //polymorphism
-//        int num = 1;
-//        SpecialNumberOriginal specialNumberOriginal;
-//        //TODO: create method instantiateTheRightThing
-//        specialNumberOriginal = instantiateTheRightThing(num);
-//        System.out.println(specialNumberOriginal.getSpecialNumber());
     }
 }
 

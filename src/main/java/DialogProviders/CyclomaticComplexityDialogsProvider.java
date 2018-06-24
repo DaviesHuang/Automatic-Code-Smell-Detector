@@ -11,9 +11,9 @@ import com.intellij.psi.PsiElement;
 public class CyclomaticComplexityDialogsProvider {
 
     public static boolean showStartDialog(Project project) {
-//        if (PropertiesComponent.getInstance().getBoolean(StartRefactoringDialog.DISMISSED)) {
-//            return true;
-//        }
+        if (PropertiesComponent.getInstance().getBoolean(StartRefactoringDialog.DISMISSED)) {
+            return true;
+        }
         StartRefactoringDialog dialog = new StartRefactoringDialog(project);
         dialog.show();
         return dialog.getExitCode() == DialogWrapper.OK_EXIT_CODE;
